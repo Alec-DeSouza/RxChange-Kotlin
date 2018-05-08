@@ -1,0 +1,116 @@
+<HTML>
+<HEAD>
+    <meta charset="UTF-8">
+    <title>ChangeMessage - rxchange-kotlin</title>
+    <link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">rxchange-kotlin</a>&nbsp;/&nbsp;<a href="../index.html">com.umbraltech.rxchange.message</a>&nbsp;/&nbsp;<a
+        href="./index.html">ChangeMessage</a><br/>
+<br/>
+<h1>ChangeMessage</h1>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">ChangeMessage</span><span
+        class="symbol">&lt;</span><span class="identifier">D</span><span class="symbol">&gt;</span></code>
+<p>The core class used to construct the messages emitted by change adapters</p>
+<h3>Parameters</h3>
+<p><a name="D"></a>
+    <code>D</code> - the type of data</p>
+<h3>Constructors</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <p><a href="-init-.html">&lt;init&gt;</a></p>
+        </td>
+        <td>
+            <code><span class="identifier">ChangeMessage</span><span class="symbol">(</span><span class="identifier"
+                                                                                                  id="com.umbraltech.rxchange.message.ChangeMessage$<init>(com.umbraltech.rxchange.message.ChangeMessage.D, com.umbraltech.rxchange.message.ChangeMessage.D, com.umbraltech.rxchange.type.ChangeType)/oldData">oldData</span><span
+                    class="symbol">:</span>&nbsp;<a href="index.html#D"><span class="identifier">D</span></a><span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="com.umbraltech.rxchange.message.ChangeMessage$<init>(com.umbraltech.rxchange.message.ChangeMessage.D, com.umbraltech.rxchange.message.ChangeMessage.D, com.umbraltech.rxchange.type.ChangeType)/newData">newData</span><span
+                    class="symbol">:</span>&nbsp;<a href="index.html#D"><span class="identifier">D</span></a><span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="com.umbraltech.rxchange.message.ChangeMessage$<init>(com.umbraltech.rxchange.message.ChangeMessage.D, com.umbraltech.rxchange.message.ChangeMessage.D, com.umbraltech.rxchange.type.ChangeType)/changeType">changeType</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../com.umbraltech.rxchange.type/-change-type/index.html"><span class="identifier">ChangeType</span></a><span
+                    class="symbol">)</span></code>
+            <p>Creates a change message with the specified data and change type</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<h3>Properties</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <p><a href="change-type.html">changeType</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">open</span> <span class="keyword">val </span><span
+                    class="identifier">changeType</span><span class="symbol">: </span><a
+                    href="../../com.umbraltech.rxchange.type/-change-type/index.html"><span class="identifier">ChangeType</span></a></code>
+            <p>the type of change that occurred</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="new-data.html">newData</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">open</span> <span class="keyword">val </span><span
+                    class="identifier">newData</span><span class="symbol">: </span><a href="index.html#D"><span
+                    class="identifier">D</span></a></code>
+            <p>the updated data</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="old-data.html">oldData</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">open</span> <span class="keyword">val </span><span
+                    class="identifier">oldData</span><span class="symbol">: </span><a href="index.html#D"><span
+                    class="identifier">D</span></a></code>
+            <p>the original data</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<h3>Functions</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <p><a href="to-string.html">toString</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">open</span> <span class="keyword">fun </span><span
+                    class="identifier">toString</span><span class="symbol">(</span><span class="symbol">)</span><span
+                    class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a></code></td>
+    </tr>
+    </tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <p><a href="../-meta-change-message/index.html">MetaChangeMessage</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">MetaChangeMessage</span><span
+                    class="symbol">&lt;</span><span class="identifier">D</span><span class="symbol">, </span><span
+                    class="identifier">M</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a
+                    href="./index.html"><span class="identifier">ChangeMessage</span></a><span
+                    class="symbol">&lt;</span><a href="../-meta-change-message/index.html#D"><span
+                    class="identifier">D</span></a><span class="symbol">&gt;</span></code>
+            <p>The core class used to provide metadata values with change messages</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</BODY>
+</HTML>

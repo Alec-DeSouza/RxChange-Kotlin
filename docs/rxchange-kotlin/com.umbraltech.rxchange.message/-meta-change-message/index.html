@@ -1,0 +1,114 @@
+<HTML>
+<HEAD>
+    <meta charset="UTF-8">
+    <title>MetaChangeMessage - rxchange-kotlin</title>
+    <link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">rxchange-kotlin</a>&nbsp;/&nbsp;<a href="../index.html">com.umbraltech.rxchange.message</a>&nbsp;/&nbsp;<a
+        href="./index.html">MetaChangeMessage</a><br/>
+<br/>
+<h1>MetaChangeMessage</h1>
+<code><span class="keyword">class </span><span class="identifier">MetaChangeMessage</span><span
+        class="symbol">&lt;</span><span class="identifier">D</span><span class="symbol">, </span><span
+        class="identifier">M</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a
+        href="../-change-message/index.html"><span class="identifier">ChangeMessage</span></a><span
+        class="symbol">&lt;</span><a href="index.html#D"><span class="identifier">D</span></a><span
+        class="symbol">&gt;</span></code>
+<p>The core class used to provide metadata values with change messages</p>
+<p>The metadata can be used to provide details on which elements were changed</p>
+<h3>Parameters</h3>
+<p><a name="D"></a>
+    <code>D</code> - the type of data</p>
+<p><a name="M"></a>
+    <code>M</code> - the type of metadata</p>
+<h3>Constructors</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <p><a href="-init-.html">&lt;init&gt;</a></p>
+        </td>
+        <td>
+            <code><span class="identifier">MetaChangeMessage</span><span class="symbol">(</span><span class="identifier"
+                                                                                                      id="com.umbraltech.rxchange.message.MetaChangeMessage$<init>(com.umbraltech.rxchange.message.MetaChangeMessage.D, com.umbraltech.rxchange.message.MetaChangeMessage.D, com.umbraltech.rxchange.type.ChangeType, com.umbraltech.rxchange.message.MetaChangeMessage.M)/oldData">oldData</span><span
+                    class="symbol">:</span>&nbsp;<a href="index.html#D"><span class="identifier">D</span></a><span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="com.umbraltech.rxchange.message.MetaChangeMessage$<init>(com.umbraltech.rxchange.message.MetaChangeMessage.D, com.umbraltech.rxchange.message.MetaChangeMessage.D, com.umbraltech.rxchange.type.ChangeType, com.umbraltech.rxchange.message.MetaChangeMessage.M)/newData">newData</span><span
+                    class="symbol">:</span>&nbsp;<a href="index.html#D"><span class="identifier">D</span></a><span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="com.umbraltech.rxchange.message.MetaChangeMessage$<init>(com.umbraltech.rxchange.message.MetaChangeMessage.D, com.umbraltech.rxchange.message.MetaChangeMessage.D, com.umbraltech.rxchange.type.ChangeType, com.umbraltech.rxchange.message.MetaChangeMessage.M)/changeType">changeType</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../com.umbraltech.rxchange.type/-change-type/index.html"><span class="identifier">ChangeType</span></a><span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="com.umbraltech.rxchange.message.MetaChangeMessage$<init>(com.umbraltech.rxchange.message.MetaChangeMessage.D, com.umbraltech.rxchange.message.MetaChangeMessage.D, com.umbraltech.rxchange.type.ChangeType, com.umbraltech.rxchange.message.MetaChangeMessage.M)/metadata">metadata</span><span
+                    class="symbol">:</span>&nbsp;<a href="index.html#M"><span class="identifier">M</span></a><span
+                    class="symbol">)</span></code>
+            <p>Creates a change message with the specified data, change type, and metadata</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<h3>Properties</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <p><a href="change-type.html">changeType</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">changeType</span><span
+                    class="symbol">: </span><a href="../../com.umbraltech.rxchange.type/-change-type/index.html"><span
+                    class="identifier">ChangeType</span></a></code>
+            <p>the type of change that occurred</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="metadata.html">metadata</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">metadata</span><span
+                    class="symbol">: </span><a href="index.html#M"><span class="identifier">M</span></a></code>
+            <p>the metadata</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="new-data.html">newData</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">newData</span><span class="symbol">: </span><a
+                    href="index.html#D"><span class="identifier">D</span></a></code>
+            <p>the updated data</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="old-data.html">oldData</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">oldData</span><span class="symbol">: </span><a
+                    href="index.html#D"><span class="identifier">D</span></a></code>
+            <p>the original data</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<h3>Functions</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <p><a href="to-string.html">toString</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">toString</span><span class="symbol">(</span><span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a></code></td>
+    </tr>
+    </tbody>
+</table>
+</BODY>
+</HTML>

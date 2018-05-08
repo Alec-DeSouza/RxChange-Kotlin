@@ -1,0 +1,149 @@
+<HTML>
+<HEAD>
+    <meta charset="UTF-8">
+    <title>SetChangeAdapter - rxchange-kotlin</title>
+    <link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">rxchange-kotlin</a>&nbsp;/&nbsp;<a href="../index.html">com.umbraltech.rxchange.adapter.collections</a>&nbsp;/&nbsp;<a
+        href="./index.html">SetChangeAdapter</a><br/>
+<br/>
+<h1>SetChangeAdapter</h1>
+<code><span class="keyword">class </span><span class="identifier">SetChangeAdapter</span><span
+        class="symbol">&lt;</span><span class="identifier">D</span><span class="symbol">&gt;</span></code>
+<p>An adapter that implements the reactive change model for sets</p>
+<h3>Parameters</h3>
+<p><a name="D"></a>
+    <code>D</code> - the type of data held by the set</p>
+<h3>Constructors</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <p><a href="-init-.html">&lt;init&gt;</a></p>
+        </td>
+        <td>
+            <code><span class="identifier">SetChangeAdapter</span><span class="symbol">(</span><span class="identifier"
+                                                                                                     id="com.umbraltech.rxchange.adapter.collections.SetChangeAdapter$<init>(kotlin.collections.Set((com.umbraltech.rxchange.adapter.collections.SetChangeAdapter.D)))/initialDataSet">initialDataSet</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span
+                    class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="index.html#D"><span
+                    class="identifier">D</span></a><span class="symbol">&gt;</span><span class="symbol">)</span></code>
+            <p>Initializes the adapter with <a
+                    href="-init-.html#com.umbraltech.rxchange.adapter.collections.SetChangeAdapter$<init>(kotlin.collections.Set((com.umbraltech.rxchange.adapter.collections.SetChangeAdapter.D)))/initialDataSet">initialDataSet</a>
+                without emitting a change message</p>
+            <code><span class="identifier">SetChangeAdapter</span><span class="symbol">(</span><span
+                    class="symbol">)</span></code>
+            <p>Default constructor</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<h3>Functions</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <p><a href="add.html">add</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">add</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.umbraltech.rxchange.adapter.collections.SetChangeAdapter$add(com.umbraltech.rxchange.adapter.collections.SetChangeAdapter.D)/data">data</span><span
+                    class="symbol">:</span>&nbsp;<a href="index.html#D"><span class="identifier">D</span></a><span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span
+                    class="identifier">Boolean</span></a></code>
+            <p>Adds <a
+                    href="add.html#com.umbraltech.rxchange.adapter.collections.SetChangeAdapter$add(com.umbraltech.rxchange.adapter.collections.SetChangeAdapter.D)/data">data</a>
+                to the set and emits a change message to surrounding observers</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="add-all.html">addAll</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">addAll</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.umbraltech.rxchange.adapter.collections.SetChangeAdapter$addAll(kotlin.collections.Set((com.umbraltech.rxchange.adapter.collections.SetChangeAdapter.D)))/dataSet">dataSet</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span
+                    class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="index.html#D"><span
+                    class="identifier">D</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span
+                    class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span
+                    class="identifier">Boolean</span></a></code>
+            <p>Adds <a
+                    href="add-all.html#com.umbraltech.rxchange.adapter.collections.SetChangeAdapter$addAll(kotlin.collections.Set((com.umbraltech.rxchange.adapter.collections.SetChangeAdapter.D)))/dataSet">dataSet</a>
+                to the set and emits a change message to surrounding observers</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="get-all.html">getAll</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">getAll</span><span
+                    class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span
+                    class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="index.html#D"><span
+                    class="identifier">D</span></a><span class="symbol">&gt;</span></code>
+            <p>Retrieves a snapshot of the current set</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="get-observable.html">getObservable</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">getObservable</span><span
+                    class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a
+                    href="http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/Observable.html"><span class="identifier">Observable</span></a><span
+                    class="symbol">&lt;</span><a href="../-change-message-set.html"><span class="identifier">ChangeMessageSet</span></a><span
+                    class="symbol">&lt;</span><a href="index.html#D"><span class="identifier">D</span></a><span
+                    class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+            <p>Retrieves a reference to the observable used for listening to change messages</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="remove.html">remove</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">remove</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.umbraltech.rxchange.adapter.collections.SetChangeAdapter$remove(com.umbraltech.rxchange.adapter.collections.SetChangeAdapter.D)/data">data</span><span
+                    class="symbol">:</span>&nbsp;<a href="index.html#D"><span class="identifier">D</span></a><span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span
+                    class="identifier">Boolean</span></a></code>
+            <p>Removes <a
+                    href="remove.html#com.umbraltech.rxchange.adapter.collections.SetChangeAdapter$remove(com.umbraltech.rxchange.adapter.collections.SetChangeAdapter.D)/data">data</a>
+                from the set and emits a change message to surrounding observers</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="remove-all.html">removeAll</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">removeAll</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.umbraltech.rxchange.adapter.collections.SetChangeAdapter$removeAll(kotlin.collections.Set((com.umbraltech.rxchange.adapter.collections.SetChangeAdapter.D)))/dataSet">dataSet</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span
+                    class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="index.html#D"><span
+                    class="identifier">D</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span
+                    class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span
+                    class="identifier">Boolean</span></a></code>
+            <p>Removes <a
+                    href="remove-all.html#com.umbraltech.rxchange.adapter.collections.SetChangeAdapter$removeAll(kotlin.collections.Set((com.umbraltech.rxchange.adapter.collections.SetChangeAdapter.D)))/dataSet">dataSet</a>
+                from the set and emits a change message to surrounding observers</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</BODY>
+</HTML>

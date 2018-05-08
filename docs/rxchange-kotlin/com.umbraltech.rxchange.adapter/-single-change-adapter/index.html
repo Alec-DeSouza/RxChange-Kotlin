@@ -1,0 +1,85 @@
+<HTML>
+<HEAD>
+    <meta charset="UTF-8">
+    <title>SingleChangeAdapter - rxchange-kotlin</title>
+    <link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">rxchange-kotlin</a>&nbsp;/&nbsp;<a href="../index.html">com.umbraltech.rxchange.adapter</a>&nbsp;/&nbsp;<a
+        href="./index.html">SingleChangeAdapter</a><br/>
+<br/>
+<h1>SingleChangeAdapter</h1>
+<code><span class="keyword">class </span><span class="identifier">SingleChangeAdapter</span><span
+        class="symbol">&lt;</span><span class="identifier">D</span><span class="symbol">&gt;</span></code>
+<p>An adapter that implements the reactive change model for a single element</p>
+<h3>Parameters</h3>
+<p><a name="D"></a>
+    <code>D</code> - the type of data</p>
+<h3>Constructors</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <p><a href="-init-.html">&lt;init&gt;</a></p>
+        </td>
+        <td>
+            <code><span class="identifier">SingleChangeAdapter</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.umbraltech.rxchange.adapter.SingleChangeAdapter$<init>(com.umbraltech.rxchange.adapter.SingleChangeAdapter.D)/data">data</span><span
+                    class="symbol">:</span>&nbsp;<a href="index.html#D"><span class="identifier">D</span></a><span
+                    class="symbol">?</span><span class="symbol">)</span></code>
+            <p>Initializes the adapter with a value, without emitting a change message</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<h3>Functions</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <p><a href="get.html">get</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">get</span><span class="symbol">(</span><span
+                    class="symbol">)</span><span class="symbol">: </span><a href="index.html#D"><span
+                    class="identifier">D</span></a><span class="symbol">?</span></code>
+            <p>Retrieves the underlying data</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="get-observable.html">getObservable</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">getObservable</span><span
+                    class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a
+                    href="http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/Observable.html"><span class="identifier">Observable</span></a><span
+                    class="symbol">&lt;</span><a
+                    href="../../com.umbraltech.rxchange.message/-change-message/index.html"><span class="identifier">ChangeMessage</span></a><span
+                    class="symbol">&lt;</span><a href="index.html#D"><span class="identifier">D</span></a><span
+                    class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+            <p>Retrieves a reference to the observable used for listening to change messages</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="update.html">update</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">update</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.umbraltech.rxchange.adapter.SingleChangeAdapter$update(com.umbraltech.rxchange.adapter.SingleChangeAdapter.D)/data">data</span><span
+                    class="symbol">:</span>&nbsp;<a href="index.html#D"><span class="identifier">D</span></a><span
+                    class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span
+                    class="identifier">Boolean</span></a></code>
+            <p>Updates the adapter with <a
+                    href="update.html#com.umbraltech.rxchange.adapter.SingleChangeAdapter$update(com.umbraltech.rxchange.adapter.SingleChangeAdapter.D)/data">data</a>
+                and emits a change message to surrounding observers</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</BODY>
+</HTML>

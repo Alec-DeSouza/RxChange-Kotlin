@@ -1,0 +1,231 @@
+<HTML>
+<HEAD>
+    <meta charset="UTF-8">
+    <title>ListChangeAdapter - rxchange-kotlin</title>
+    <link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">rxchange-kotlin</a>&nbsp;/&nbsp;<a href="../index.html">com.umbraltech.rxchange.adapter.collections</a>&nbsp;/&nbsp;<a
+        href="./index.html">ListChangeAdapter</a><br/>
+<br/>
+<h1>ListChangeAdapter</h1>
+<code><span class="keyword">class </span><span class="identifier">ListChangeAdapter</span><span
+        class="symbol">&lt;</span><span class="identifier">D</span><span class="symbol">&gt;</span></code>
+<p>An adapter that implements the reactive change model for lists</p>
+<h3>Parameters</h3>
+<p><a name="D"></a>
+    <code>D</code> - the type of data held by the list</p>
+<h3>Constructors</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <p><a href="-init-.html">&lt;init&gt;</a></p>
+        </td>
+        <td>
+            <code><span class="identifier">ListChangeAdapter</span><span class="symbol">(</span><span class="identifier"
+                                                                                                      id="com.umbraltech.rxchange.adapter.collections.ListChangeAdapter$<init>(kotlin.collections.List((com.umbraltech.rxchange.adapter.collections.ListChangeAdapter.D)))/initialDataList">initialDataList</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
+                    class="identifier">List</span></a><span class="symbol">&lt;</span><a href="index.html#D"><span
+                    class="identifier">D</span></a><span class="symbol">?</span><span class="symbol">&gt;</span><span
+                    class="symbol">)</span></code>
+            <p>Initializes the adapter with <a
+                    href="-init-.html#com.umbraltech.rxchange.adapter.collections.ListChangeAdapter$<init>(kotlin.collections.List((com.umbraltech.rxchange.adapter.collections.ListChangeAdapter.D)))/initialDataList">initialDataList</a>
+                without emitting a change message</p>
+            <code><span class="identifier">ListChangeAdapter</span><span class="symbol">(</span><span
+                    class="symbol">)</span></code>
+            <p>Default constructor</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<h3>Functions</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <p><a href="add.html">add</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">add</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.umbraltech.rxchange.adapter.collections.ListChangeAdapter$add(com.umbraltech.rxchange.adapter.collections.ListChangeAdapter.D)/data">data</span><span
+                    class="symbol">:</span>&nbsp;<a href="index.html#D"><span class="identifier">D</span></a><span
+                    class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span
+                    class="identifier">Boolean</span></a></code>
+            <p>Adds <a
+                    href="add.html#com.umbraltech.rxchange.adapter.collections.ListChangeAdapter$add(com.umbraltech.rxchange.adapter.collections.ListChangeAdapter.D)/data">data</a>
+                to the list and emits a change message to surrounding observers</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="add-all.html">addAll</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">addAll</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.umbraltech.rxchange.adapter.collections.ListChangeAdapter$addAll(kotlin.collections.List((com.umbraltech.rxchange.adapter.collections.ListChangeAdapter.D)))/dataList">dataList</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
+                    class="identifier">List</span></a><span class="symbol">&lt;</span><a href="index.html#D"><span
+                    class="identifier">D</span></a><span class="symbol">?</span><span class="symbol">&gt;</span><span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span
+                    class="identifier">Boolean</span></a></code>
+            <p>Adds <a
+                    href="add-all.html#com.umbraltech.rxchange.adapter.collections.ListChangeAdapter$addAll(kotlin.collections.List((com.umbraltech.rxchange.adapter.collections.ListChangeAdapter.D)))/dataList">dataList</a>
+                to the list and emits a change message to surrounding observers</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="add-at.html">addAt</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">addAt</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.umbraltech.rxchange.adapter.collections.ListChangeAdapter$addAt(kotlin.Int, com.umbraltech.rxchange.adapter.collections.ListChangeAdapter.D)/index">index</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="com.umbraltech.rxchange.adapter.collections.ListChangeAdapter$addAt(kotlin.Int, com.umbraltech.rxchange.adapter.collections.ListChangeAdapter.D)/data">data</span><span
+                    class="symbol">:</span>&nbsp;<a href="index.html#D"><span class="identifier">D</span></a><span
+                    class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span
+                    class="identifier">Boolean</span></a></code>
+            <p>Adds <a
+                    href="add-at.html#com.umbraltech.rxchange.adapter.collections.ListChangeAdapter$addAt(kotlin.Int, com.umbraltech.rxchange.adapter.collections.ListChangeAdapter.D)/data">data</a>
+                to the list at the specified <a
+                        href="add-at.html#com.umbraltech.rxchange.adapter.collections.ListChangeAdapter$addAt(kotlin.Int, com.umbraltech.rxchange.adapter.collections.ListChangeAdapter.D)/index">index</a>
+                and emits a change message to surrounding observers</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="get.html">get</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">operator</span> <span class="keyword">fun </span><span
+                    class="identifier">get</span><span class="symbol">(</span><span class="identifier"
+                                                                                    id="com.umbraltech.rxchange.adapter.collections.ListChangeAdapter$get(kotlin.Int)/index">index</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span
+                    class="symbol">)</span><span class="symbol">: </span><a href="index.html#D"><span
+                    class="identifier">D</span></a><span class="symbol">?</span></code>
+            <p>Retrieves the element at the specified <a
+                    href="get.html#com.umbraltech.rxchange.adapter.collections.ListChangeAdapter$get(kotlin.Int)/index">index</a>
+                of the list</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="get-all.html">getAll</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">getAll</span><span
+                    class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
+                    class="identifier">List</span></a><span class="symbol">&lt;</span><a href="index.html#D"><span
+                    class="identifier">D</span></a><span class="symbol">?</span><span class="symbol">&gt;</span></code>
+            <p>Retrieves a snapshot of the current list</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="get-observable.html">getObservable</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">getObservable</span><span
+                    class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a
+                    href="http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/Observable.html"><span class="identifier">Observable</span></a><span
+                    class="symbol">&lt;</span><a href="../-change-message-list.html"><span class="identifier">ChangeMessageList</span></a><span
+                    class="symbol">&lt;</span><a href="index.html#D"><span class="identifier">D</span></a><span
+                    class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+            <p>Retrieves a reference to the observable used for listening to change messages</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="remove.html">remove</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">remove</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.umbraltech.rxchange.adapter.collections.ListChangeAdapter$remove(com.umbraltech.rxchange.adapter.collections.ListChangeAdapter.D)/data">data</span><span
+                    class="symbol">:</span>&nbsp;<a href="index.html#D"><span class="identifier">D</span></a><span
+                    class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span
+                    class="identifier">Boolean</span></a></code>
+            <p>Removes <a
+                    href="remove.html#com.umbraltech.rxchange.adapter.collections.ListChangeAdapter$remove(com.umbraltech.rxchange.adapter.collections.ListChangeAdapter.D)/data">data</a>
+                from the list and emits a change message to surrounding observers</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="remove-all.html">removeAll</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">removeAll</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.umbraltech.rxchange.adapter.collections.ListChangeAdapter$removeAll(kotlin.collections.List((com.umbraltech.rxchange.adapter.collections.ListChangeAdapter.D)))/dataList">dataList</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
+                    class="identifier">List</span></a><span class="symbol">&lt;</span><a href="index.html#D"><span
+                    class="identifier">D</span></a><span class="symbol">?</span><span class="symbol">&gt;</span><span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span
+                    class="identifier">Boolean</span></a></code>
+            <p>Removes <a
+                    href="remove-all.html#com.umbraltech.rxchange.adapter.collections.ListChangeAdapter$removeAll(kotlin.collections.List((com.umbraltech.rxchange.adapter.collections.ListChangeAdapter.D)))/dataList">dataList</a>
+                from the list and emits a change message to surrounding observers</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="remove-at.html">removeAt</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">removeAt</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.umbraltech.rxchange.adapter.collections.ListChangeAdapter$removeAt(kotlin.Int)/index">index</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span
+                    class="identifier">Boolean</span></a></code>
+            <p>Removes data at the specified <a
+                    href="remove-at.html#com.umbraltech.rxchange.adapter.collections.ListChangeAdapter$removeAt(kotlin.Int)/index">index</a>
+                and emits a change message to surrounding observers</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="update.html">update</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">update</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.umbraltech.rxchange.adapter.collections.ListChangeAdapter$update(kotlin.Int, com.umbraltech.rxchange.adapter.collections.ListChangeAdapter.D)/index">index</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="com.umbraltech.rxchange.adapter.collections.ListChangeAdapter$update(kotlin.Int, com.umbraltech.rxchange.adapter.collections.ListChangeAdapter.D)/data">data</span><span
+                    class="symbol">:</span>&nbsp;<a href="index.html#D"><span class="identifier">D</span></a><span
+                    class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span
+                    class="identifier">Boolean</span></a></code>
+            <p>Updates the element at the specified <a
+                    href="update.html#com.umbraltech.rxchange.adapter.collections.ListChangeAdapter$update(kotlin.Int, com.umbraltech.rxchange.adapter.collections.ListChangeAdapter.D)/index">index</a>
+                with
+                <a href="update.html#com.umbraltech.rxchange.adapter.collections.ListChangeAdapter$update(kotlin.Int, com.umbraltech.rxchange.adapter.collections.ListChangeAdapter.D)/data">data</a>
+            </p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</BODY>
+</HTML>

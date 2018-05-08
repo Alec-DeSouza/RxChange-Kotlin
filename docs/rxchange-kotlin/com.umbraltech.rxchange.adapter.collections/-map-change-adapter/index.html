@@ -1,0 +1,220 @@
+<HTML>
+<HEAD>
+    <meta charset="UTF-8">
+    <title>MapChangeAdapter - rxchange-kotlin</title>
+    <link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">rxchange-kotlin</a>&nbsp;/&nbsp;<a href="../index.html">com.umbraltech.rxchange.adapter.collections</a>&nbsp;/&nbsp;<a
+        href="./index.html">MapChangeAdapter</a><br/>
+<br/>
+<h1>MapChangeAdapter</h1>
+<code><span class="keyword">class </span><span class="identifier">MapChangeAdapter</span><span
+        class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span
+        class="identifier">D</span><span class="symbol">&gt;</span></code>
+<p>An adapter that implements the reactive change model for maps</p>
+<h3>Parameters</h3>
+<p><a name="K"></a>
+    <code>K</code> - the type used for the keys</p>
+<p><a name="D"></a>
+    <code>D</code> - the type used for the data</p>
+<h3>Constructors</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <p><a href="-init-.html">&lt;init&gt;</a></p>
+        </td>
+        <td>
+            <code><span class="identifier">MapChangeAdapter</span><span class="symbol">(</span><span class="identifier"
+                                                                                                     id="com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$<init>(kotlin.collections.Map((com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K, com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.D)))/initialDataMap">initialDataMap</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span
+                    class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="index.html#K"><span
+                    class="identifier">K</span></a><span class="symbol">,</span>&nbsp;<a href="index.html#D"><span
+                    class="identifier">D</span></a><span class="symbol">?</span><span class="symbol">&gt;</span><span
+                    class="symbol">)</span></code>
+            <p>Initializes the adapter with <a
+                    href="-init-.html#com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$<init>(kotlin.collections.Map((com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K, com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.D)))/initialDataMap">initialDataMap</a>
+                without emitting a change message</p>
+            <code><span class="identifier">MapChangeAdapter</span><span class="symbol">(</span><span
+                    class="symbol">)</span></code>
+            <p>Default constructor</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<h3>Functions</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <p><a href="add.html">add</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">add</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$add(com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K, com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.D)/key">key</span><span
+                    class="symbol">:</span>&nbsp;<a href="index.html#K"><span class="identifier">K</span></a><span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$add(com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K, com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.D)/data">data</span><span
+                    class="symbol">:</span>&nbsp;<a href="index.html#D"><span class="identifier">D</span></a><span
+                    class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span
+                    class="identifier">Boolean</span></a></code>
+            <p>Adds the key-value pair entry (<a
+                    href="add.html#com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$add(com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K, com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.D)/key">key</a>,
+                <a href="add.html#com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$add(com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K, com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.D)/data">data</a>)
+                to the map and emits a change message to surrounding observers</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="add-all.html">addAll</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">addAll</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$addAll(kotlin.collections.Map((com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K, com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.D)))/dataMap">dataMap</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span
+                    class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="index.html#K"><span
+                    class="identifier">K</span></a><span class="symbol">,</span>&nbsp;<a href="index.html#D"><span
+                    class="identifier">D</span></a><span class="symbol">?</span><span class="symbol">&gt;</span><span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span
+                    class="identifier">Boolean</span></a></code>
+            <p>Adds the key-value pair entries from <a
+                    href="add-all.html#com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$addAll(kotlin.collections.Map((com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K, com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.D)))/dataMap">dataMap</a>
+                to the map and emits a change message to surrounding observers</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="get.html">get</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">operator</span> <span class="keyword">fun </span><span
+                    class="identifier">get</span><span class="symbol">(</span><span class="identifier"
+                                                                                    id="com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$get(com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K)/key">key</span><span
+                    class="symbol">:</span>&nbsp;<a href="index.html#K"><span class="identifier">K</span></a><span
+                    class="symbol">)</span><span class="symbol">: </span><a href="index.html#D"><span
+                    class="identifier">D</span></a><span class="symbol">?</span></code>
+            <p>Retrieves the data of entry specified by <a
+                    href="get.html#com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$get(com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K)/key">key</a>
+                from the map</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="get-all.html">getAll</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">getAll</span><span
+                    class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span
+                    class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="index.html#K"><span
+                    class="identifier">K</span></a><span class="symbol">,</span>&nbsp;<a href="index.html#D"><span
+                    class="identifier">D</span></a><span class="symbol">?</span><span class="symbol">&gt;</span></code>
+            <p>Retrieves a snapshot of the current map</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="get-observable.html">getObservable</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">getObservable</span><span
+                    class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a
+                    href="http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/Observable.html"><span class="identifier">Observable</span></a><span
+                    class="symbol">&lt;</span><a href="../-change-message-map.html"><span class="identifier">ChangeMessageMap</span></a><span
+                    class="symbol">&lt;</span><a href="index.html#K"><span class="identifier">K</span></a><span
+                    class="symbol">,</span>&nbsp;<a href="index.html#D"><span class="identifier">D</span></a><span
+                    class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+            <p>Retrieves a reference to the observable used for listening to change messages</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="remove.html">remove</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">remove</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$remove(com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K)/key">key</span><span
+                    class="symbol">:</span>&nbsp;<a href="index.html#K"><span class="identifier">K</span></a><span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span
+                    class="identifier">Boolean</span></a></code>
+            <p>Removes the entry specified by <a
+                    href="remove.html#com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$remove(com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K)/key">key</a>
+                and emits a change message to surrounding observers</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="remove-all.html">removeAll</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">removeAll</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$removeAll(kotlin.collections.Set((com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K)))/keySet">keySet</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span
+                    class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="index.html#K"><span
+                    class="identifier">K</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span
+                    class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span
+                    class="identifier">Boolean</span></a></code>
+            <p>Removes the entries specified by <a
+                    href="remove-all.html#com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$removeAll(kotlin.collections.Set((com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K)))/keySet">keySet</a>
+                from the map and emits a change message to surrounding observers</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="update.html">update</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">update</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$update(com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K, com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.D)/key">key</span><span
+                    class="symbol">:</span>&nbsp;<a href="index.html#K"><span class="identifier">K</span></a><span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$update(com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K, com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.D)/data">data</span><span
+                    class="symbol">:</span>&nbsp;<a href="index.html#D"><span class="identifier">D</span></a><span
+                    class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span
+                    class="identifier">Boolean</span></a></code>
+            <p>Updates the entry specified by <a
+                    href="update.html#com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$update(com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K, com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.D)/key">key</a>
+                with
+                <a href="update.html#com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$update(com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K, com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.D)/data">data</a>
+                in the map and emits a change message to surrounding observers</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="update-all.html">updateAll</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">updateAll</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$updateAll(kotlin.collections.Map((com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K, com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.D)))/dataMap">dataMap</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span
+                    class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="index.html#K"><span
+                    class="identifier">K</span></a><span class="symbol">,</span>&nbsp;<a href="index.html#D"><span
+                    class="identifier">D</span></a><span class="symbol">?</span><span class="symbol">&gt;</span><span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span
+                    class="identifier">Boolean</span></a></code>
+            <p>Updates the entries specified by <a
+                    href="update-all.html#com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$updateAll(kotlin.collections.Map((com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K, com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.D)))/dataMap">dataMap</a>
+                in the map and emits a change message to surrounding observers</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</BODY>
+</HTML>
