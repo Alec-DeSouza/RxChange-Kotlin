@@ -19,8 +19,11 @@ package com.umbraltech.rxchange.adapter
 import com.umbraltech.rxchange.message.ChangeMessage
 import com.umbraltech.rxchange.message.MetaChangeMessage
 import com.umbraltech.rxchange.type.ChangeType
+import com.umbraltech.rxchange.withLock
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
+import java.util.concurrent.locks.ReadWriteLock
+import java.util.concurrent.locks.ReentrantReadWriteLock
 
 /**
  * An adapter that implements the reactive change model for a single element
@@ -28,8 +31,9 @@ import io.reactivex.subjects.PublishSubject
  * @param D the type of data
  * @constructor Initializes the adapter with a value, without emitting a change message
  */
-class SingleChangeAdapter<D>(private var data: D?) {
-    private val publishSubject: PublishSubject<ChangeMessage<D?>> = PublishSubject.create()
+class SingleChangeAdapter<D>(@Volatile private var data: D) {
+    private val publishSubject: PublishSubject<ChangeMessage<D>> = PublishSubject.create()
+    private val readWriteLock: ReadWriteLock = ReentrantReadWriteLock()
 
     /**
      * Updates the adapter with [data] and emits a change message to surrounding observers
@@ -38,8 +42,8 @@ class SingleChangeAdapter<D>(private var data: D?) {
      *
      * @return true if the element was added, false otherwise
      */
-    fun update(data: D?): Boolean {
-        val oldData: D? = this.data
+    fun update(data: D): Boolean = withLock(readWriteLock.writeLock()) {
+        val oldData: D = this.data
         this.data = data
 
         // Signal update
@@ -53,12 +57,14 @@ class SingleChangeAdapter<D>(private var data: D?) {
      *
      * @return the current data
      */
-    fun get(): D? = data
+    fun get(): D = withLock(readWriteLock.readLock()) {
+        return data
+    }
 
     /**
      * Retrieves a reference to the observable used for listening to change messages
      *
      * @return the observable reference
      */
-    fun getObservable(): Observable<ChangeMessage<D?>> = publishSubject
+    fun getObservable(): Observable<ChangeMessage<D>> = publishSubject
 }

@@ -19,8 +19,11 @@ package com.umbraltech.rxchange.adapter.collections
 import com.umbraltech.rxchange.message.ChangeMessage
 import com.umbraltech.rxchange.message.MetaChangeMessage
 import com.umbraltech.rxchange.type.ChangeType
+import com.umbraltech.rxchange.withLock
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
+import java.util.concurrent.locks.ReadWriteLock
+import java.util.concurrent.locks.ReentrantReadWriteLock
 
 /** Alias used for the type ChangeMessage<Set<D>> */
 typealias ChangeMessageSet<D> = ChangeMessage<Set<D>>
@@ -34,6 +37,7 @@ typealias ChangeMessageSet<D> = ChangeMessage<Set<D>>
 class SetChangeAdapter<D>() {
     private val publishSubject: PublishSubject<ChangeMessageSet<D>> = PublishSubject.create()
     private val dataSet: MutableSet<D> = mutableSetOf()
+    private val readWriteLock: ReadWriteLock = ReentrantReadWriteLock()
 
     /** Initializes the adapter with [initialDataSet] without emitting a change message */
     constructor(initialDataSet: Set<D>) : this() {
@@ -47,7 +51,7 @@ class SetChangeAdapter<D>() {
      *
      * @return true if the element was added, false otherwise
      */
-    fun add(data: D): Boolean {
+    fun add(data: D): Boolean = withLock(readWriteLock.writeLock()) {
 
         // Check if entry already exists
         if (data in dataSet) {
@@ -72,7 +76,7 @@ class SetChangeAdapter<D>() {
      *
      * @return true if all of the elements of [dataSet] were added, false otherwise
      */
-    fun addAll(dataSet: Set<D>): Boolean {
+    fun addAll(dataSet: Set<D>): Boolean = withLock(readWriteLock.writeLock()) {
 
         // Check if entries already exist
         if (this.dataSet.containsAll(dataSet)) {
@@ -98,7 +102,7 @@ class SetChangeAdapter<D>() {
      *
      * @return true if the element was removed, false otherwise
      */
-    fun remove(data: D): Boolean {
+    fun remove(data: D): Boolean = withLock(readWriteLock.writeLock()) {
 
         // Check if no entry to remove
         if (data !in dataSet) {
@@ -123,7 +127,7 @@ class SetChangeAdapter<D>() {
      *
      * @return true if all of the elements of [dataSet] were removed, false otherwise
      */
-    fun removeAll(dataSet: Set<D>): Boolean {
+    fun removeAll(dataSet: Set<D>): Boolean = withLock(readWriteLock.writeLock()) {
 
         // Check if entries do not exist
         if (!this.dataSet.containsAll(dataSet)) {
@@ -147,7 +151,9 @@ class SetChangeAdapter<D>() {
      *
      * @return the set of elements
      */
-    fun getAll(): Set<D> = dataSet.toSet()
+    fun getAll(): Set<D> = withLock(readWriteLock.readLock()) {
+        return dataSet.toSet()
+    }
 
     /**
      * Retrieves a reference to the observable used for listening to change messages

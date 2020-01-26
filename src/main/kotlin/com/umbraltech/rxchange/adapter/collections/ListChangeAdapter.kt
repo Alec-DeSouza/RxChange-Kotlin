@@ -19,8 +19,11 @@ package com.umbraltech.rxchange.adapter.collections
 import com.umbraltech.rxchange.message.ChangeMessage
 import com.umbraltech.rxchange.message.MetaChangeMessage
 import com.umbraltech.rxchange.type.ChangeType
+import com.umbraltech.rxchange.withLock
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
+import java.util.concurrent.locks.ReadWriteLock
+import java.util.concurrent.locks.ReentrantReadWriteLock
 
 /** Alias used for the type ChangeMessage<List<D>> */
 typealias ChangeMessageList<D> = ChangeMessage<List<D>>
@@ -32,11 +35,12 @@ typealias ChangeMessageList<D> = ChangeMessage<List<D>>
  * @constructor Default constructor
  */
 class ListChangeAdapter<D>() {
-    private val publishSubject: PublishSubject<ChangeMessageList<D?>> = PublishSubject.create()
-    private val dataList: MutableList<D?> = mutableListOf()
+    private val publishSubject: PublishSubject<ChangeMessageList<D>> = PublishSubject.create()
+    private val dataList: MutableList<D> = mutableListOf()
+    private val readWriteLock: ReadWriteLock = ReentrantReadWriteLock()
 
     /** Initializes the adapter with [initialDataList] without emitting a change message */
-    constructor(initialDataList: List<D?>) : this() {
+    constructor(initialDataList: List<D>) : this() {
         dataList.addAll(initialDataList)
     }
 
@@ -47,11 +51,11 @@ class ListChangeAdapter<D>() {
      *
      * @return true always
      */
-    fun add(data: D?): Boolean {
-        val oldListSnapshot: List<D?> = dataList.toList()
+    fun add(data: D): Boolean = withLock(readWriteLock.writeLock()) {
+        val oldListSnapshot: List<D> = dataList.toList()
         dataList.add(data)
 
-        val newListSnapshot: List<D?> = dataList.toList()
+        val newListSnapshot: List<D> = dataList.toList()
 
         // Signal addition
         publishSubject.onNext(MetaChangeMessage(oldListSnapshot, newListSnapshot, ChangeType.ADD, data))
@@ -66,17 +70,17 @@ class ListChangeAdapter<D>() {
      *
      * @return true if the element was added to the list, false otherwise
      */
-    fun addAt(index: Int, data: D?): Boolean {
+    fun addAt(index: Int, data: D): Boolean = withLock(readWriteLock.writeLock()) {
 
-        // Validate index
+        // Validate index (and allow adding at ends)
         if (index !in 0..dataList.size) {
             return false
         }
 
-        val oldListSnapShot: List<D?> = dataList.toList()
+        val oldListSnapShot: List<D> = dataList.toList()
         dataList.add(index, data)
 
-        val newListSnapshot: List<D?> = dataList.toList()
+        val newListSnapshot: List<D> = dataList.toList()
 
         // Signal addition
         publishSubject.onNext(MetaChangeMessage(oldListSnapShot, newListSnapshot, ChangeType.ADD, data))
@@ -91,12 +95,12 @@ class ListChangeAdapter<D>() {
      *
      * @return true always
      */
-    fun addAll(dataList: List<D?>): Boolean {
-        val oldListSnapshot: List<D?> = this.dataList.toList()
+    fun addAll(dataList: List<D>): Boolean = withLock(readWriteLock.writeLock()) {
+        val oldListSnapshot: List<D> = this.dataList.toList()
         this.dataList.addAll(dataList)
 
-        val newListSnapshot: List<D?> = this.dataList.toList()
-        val changeSnapshot: List<D?> = dataList.toList()
+        val newListSnapshot: List<D> = this.dataList.toList()
+        val changeSnapshot: List<D> = dataList.toList()
 
         // Signal addition
         publishSubject.onNext(MetaChangeMessage(oldListSnapshot, newListSnapshot, ChangeType.ADD, changeSnapshot))
@@ -111,17 +115,17 @@ class ListChangeAdapter<D>() {
      *
      * @return true if the element was removed, false otherwise
      */
-    fun remove(data: D?): Boolean {
+    fun remove(data: D): Boolean = withLock(readWriteLock.writeLock()) {
 
         // Validate item
         if (data !in dataList) {
             return false
         }
 
-        val oldListSnapshot: List<D?> = dataList.toList()
+        val oldListSnapshot: List<D> = dataList.toList()
         dataList.remove(data)
 
-        val newListSnapshot: List<D?> = dataList.toList()
+        val newListSnapshot: List<D> = dataList.toList()
 
         // Signal removal
         publishSubject.onNext(MetaChangeMessage(oldListSnapshot, newListSnapshot, ChangeType.REMOVE, data))
@@ -136,17 +140,17 @@ class ListChangeAdapter<D>() {
      *
      * @return true if the element was removed, false otherwise
      */
-    fun removeAt(index: Int): Boolean {
+    fun removeAt(index: Int): Boolean = withLock(readWriteLock.writeLock()) {
 
         // Validate index
         if (index !in 0 until dataList.size) {
             return false
         }
 
-        val oldListSnapshot: List<D?> = dataList.toList()
-        val data: D? = dataList.removeAt(index)
+        val oldListSnapshot: List<D> = dataList.toList()
+        val data: D = dataList.removeAt(index)
 
-        val newListSnapshot: List<D?> = dataList.toList()
+        val newListSnapshot: List<D> = dataList.toList()
 
         // Signal removal
         publishSubject.onNext(MetaChangeMessage(oldListSnapshot, newListSnapshot, ChangeType.REMOVE, data))
@@ -161,18 +165,18 @@ class ListChangeAdapter<D>() {
      *
      * @return true if all of the elements of [dataList] were removed, false otherwise
      */
-    fun removeAll(dataList: List<D?>): Boolean {
+    fun removeAll(dataList: List<D>): Boolean = withLock(readWriteLock.writeLock()) {
 
         // Validate items
         if (!this.dataList.containsAll(dataList)) {
             return false
         }
 
-        val oldListSnapshot: List<D?> = this.dataList.toList()
+        val oldListSnapshot: List<D> = this.dataList.toList()
         this.dataList.removeAll(dataList)
 
-        val newListSnapshot: List<D?> = this.dataList.toList()
-        val changeSnapshot: List<D?> = dataList.toList()
+        val newListSnapshot: List<D> = this.dataList.toList()
+        val changeSnapshot: List<D> = dataList.toList()
 
         // Signal removal
         publishSubject.onNext(MetaChangeMessage(oldListSnapshot, newListSnapshot, ChangeType.REMOVE, changeSnapshot))
@@ -187,17 +191,17 @@ class ListChangeAdapter<D>() {
      *
      * @return true if the element was updated, false otherwise
      */
-    fun update(index: Int, data: D?): Boolean {
+    fun update(index: Int, data: D): Boolean = withLock(readWriteLock.writeLock()) {
 
         // Validate index
         if (index !in 0 until dataList.size) {
             return false
         }
 
-        val oldListSnapshot: List<D?> = dataList.toList()
+        val oldListSnapshot: List<D> = dataList.toList()
         dataList[index] = data
 
-        val newListSnapshot: List<D?> = dataList.toList()
+        val newListSnapshot: List<D> = dataList.toList()
 
         // Signal update
         publishSubject.onNext(MetaChangeMessage(oldListSnapshot, newListSnapshot, ChangeType.UPDATE, data))
@@ -210,19 +214,23 @@ class ListChangeAdapter<D>() {
      *
      * @return the element if a valid [index] is provided, null otherwise
      */
-    operator fun get(index: Int): D? = dataList[index]
+    operator fun get(index: Int): D = withLock(readWriteLock.readLock()) {
+        return dataList[index]
+    }
 
     /**
      * Retrieves a snapshot of the current list
      *
      * @return the list of elements
      */
-    fun getAll(): List<D?> = dataList.toList()
+    fun getAll(): List<D> = withLock(readWriteLock.readLock()) {
+        return dataList.toList()
+    }
 
     /**
      * Retrieves a reference to the observable used for listening to change messages
      *
      * @return the observable reference
      */
-    fun getObservable(): Observable<ChangeMessageList<D?>> = publishSubject
+    fun getObservable(): Observable<ChangeMessageList<D>> = publishSubject
 }

@@ -37,6 +37,6 @@ class MetadataFilter(private val metadataClass: KClass<*>) : Predicate<ChangeMes
         }
 
         // Verify metadata is provided and a subclass of the specified type
-        return changeMessage.metadata?.let { return metadataClass.isInstance(it) } ?: return false
+        return changeMessage.metadata?.let { return metadataClass.isInstance(it) } ?: false
     }
 }

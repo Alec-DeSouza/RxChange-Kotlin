@@ -81,8 +81,8 @@ class ListChangeAdapterTest {
                 .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList))
 
         // Perform sequence of updates
-        for (i: Int in 0 until testList.size) {
-            assertTrue("Add at", changeAdapter.addAt(i, testList[i]))
+        for (i: Int in testList.indices) {
+            assertTrue("Add at $i", changeAdapter.addAt(i, testList[i]))
         }
 
         // Verify all payloads were tested

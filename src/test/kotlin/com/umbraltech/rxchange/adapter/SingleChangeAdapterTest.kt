@@ -36,8 +36,8 @@ class SingleChangeAdapterTest {
 
     @Test
     fun update() {
-        val oldPayloadList: MutableList<Int?> = mutableListOf(0, 1, 2)
-        val newPayloadList: MutableList<Int?> = mutableListOf(1, 2, 3)
+        val oldPayloadList: MutableList<Int> = mutableListOf(0, 1, 2)
+        val newPayloadList: MutableList<Int> = mutableListOf(1, 2, 3)
 
         changeAdapter.getObservable()
                 .filter(ChangeTypeFilter(ChangeType.UPDATE))
