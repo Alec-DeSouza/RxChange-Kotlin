@@ -34,10 +34,12 @@ The reactive change model supports 3 types of data changes: add, remove, and upd
 
 ### Dependencies
 
+[![Maven Central](https://img.shields.io/maven-central/v/com.umbraltech/rxchange-kotlin/1.1.0.svg)](https://mvnrepository.com/artifact/com.umbraltech/rxchange-kotlin/1.1.0)
+
 #### Gradle
 
 ```gradle
-compile 'com.umbraltech:rxchange-kotlin:1.0.0'
+implementation 'com.umbraltech:rxchange-kotlin:x.y.z'
 ```
 
 #### Maven
@@ -46,7 +48,7 @@ compile 'com.umbraltech:rxchange-kotlin:1.0.0'
 <dependency>
     <groupId>com.umbraltech</groupId>
     <artifactId>rxchange-kotlin</artifactId>
-    <version>1.0.0</version>
+    <version>x.y.z</version>
 </dependency>
 ```
 
@@ -133,7 +135,7 @@ The examples below demonstrate how filtering can be done for both single and bat
 
 ###### Batch Change Filter
 
-```Java
+```Kotlin
     listChangeAdapter.getObservable()
                 .filter(MetadataFilter(List::class))
                 .map { it as MetaChangeMessage<List<Int?>, List<Int?>> }
@@ -195,26 +197,7 @@ Output:
 
 ### Lifecycle Awareness (Android)
 
-When developing Android applications, it may be the case that observers need to be aware of an Activity or Fragment's lifecycle. We recommend using the [RxLifecycle](https://github.com/trello/RxLifecycle) library and then extending the `RxActivity` class for activities or the `RxFragment` class for fragments. Afterwards, the `compose()` function can be used in conjunction with RxLifecycle's `bind***()` methods while registering the observer.
-
-The example below registers an observer that will only listen up until the Activity enters the paused state.
-
-```Kotlin
-
-class MyActivity : RxActivity() {
-
-    // ...
-
-    private fun myFunction() {
-
-        // ...
-
-        listChangeAdapter.getObservable()
-                    .compose(bindUntilEvent(ActivityEvent.PAUSE))
-                    .subscribe { changeMessage -> /* Logic */ }
-    }
-}
-```
+When developing Android applications, it may be the case that observers need to be aware of an Activity or Fragment's lifecycle. We recommend using the [AutoDispose](https://uber.github.io/AutoDispose/) library to achieve this purpose.
 
 ## Documentation
 
