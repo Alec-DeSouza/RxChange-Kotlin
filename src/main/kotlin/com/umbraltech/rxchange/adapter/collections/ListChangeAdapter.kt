@@ -19,11 +19,11 @@ package com.umbraltech.rxchange.adapter.collections
 import com.umbraltech.rxchange.message.ChangeMessage
 import com.umbraltech.rxchange.message.MetaChangeMessage
 import com.umbraltech.rxchange.type.ChangeType
-import com.umbraltech.rxchange.withLock
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 import java.util.concurrent.locks.ReadWriteLock
 import java.util.concurrent.locks.ReentrantReadWriteLock
+import kotlin.concurrent.withLock
 
 /** Alias used for the type ChangeMessage<List<D>> */
 typealias ChangeMessageList<D> = ChangeMessage<List<D>>
@@ -51,7 +51,7 @@ class ListChangeAdapter<D>() {
      *
      * @return true always
      */
-    fun add(data: D): Boolean = withLock(readWriteLock.writeLock()) {
+    fun add(data: D): Boolean = readWriteLock.writeLock().withLock {
         val oldListSnapshot: List<D> = dataList.toList()
         dataList.add(data)
 
@@ -70,7 +70,7 @@ class ListChangeAdapter<D>() {
      *
      * @return true if the element was added to the list, false otherwise
      */
-    fun addAt(index: Int, data: D): Boolean = withLock(readWriteLock.writeLock()) {
+    fun addAt(index: Int, data: D): Boolean = readWriteLock.writeLock().withLock {
 
         // Validate index (and allow adding at ends)
         if (index !in 0..dataList.size) {
@@ -95,7 +95,7 @@ class ListChangeAdapter<D>() {
      *
      * @return true always
      */
-    fun addAll(dataList: List<D>): Boolean = withLock(readWriteLock.writeLock()) {
+    fun addAll(dataList: List<D>): Boolean = readWriteLock.writeLock().withLock {
         val oldListSnapshot: List<D> = this.dataList.toList()
         this.dataList.addAll(dataList)
 
@@ -115,7 +115,7 @@ class ListChangeAdapter<D>() {
      *
      * @return true if the element was removed, false otherwise
      */
-    fun remove(data: D): Boolean = withLock(readWriteLock.writeLock()) {
+    fun remove(data: D): Boolean = readWriteLock.writeLock().withLock {
 
         // Validate item
         if (data !in dataList) {
@@ -140,7 +140,7 @@ class ListChangeAdapter<D>() {
      *
      * @return true if the element was removed, false otherwise
      */
-    fun removeAt(index: Int): Boolean = withLock(readWriteLock.writeLock()) {
+    fun removeAt(index: Int): Boolean = readWriteLock.writeLock().withLock {
 
         // Validate index
         if (index !in 0 until dataList.size) {
@@ -165,7 +165,7 @@ class ListChangeAdapter<D>() {
      *
      * @return true if all of the elements of [dataList] were removed, false otherwise
      */
-    fun removeAll(dataList: List<D>): Boolean = withLock(readWriteLock.writeLock()) {
+    fun removeAll(dataList: List<D>): Boolean = readWriteLock.writeLock().withLock {
 
         // Validate items
         if (!this.dataList.containsAll(dataList)) {
@@ -191,7 +191,7 @@ class ListChangeAdapter<D>() {
      *
      * @return true if the element was updated, false otherwise
      */
-    fun update(index: Int, data: D): Boolean = withLock(readWriteLock.writeLock()) {
+    fun update(index: Int, data: D): Boolean = readWriteLock.writeLock().withLock {
 
         // Validate index
         if (index !in 0 until dataList.size) {
@@ -214,7 +214,7 @@ class ListChangeAdapter<D>() {
      *
      * @return the element if a valid [index] is provided, null otherwise
      */
-    operator fun get(index: Int): D = withLock(readWriteLock.readLock()) {
+    operator fun get(index: Int): D = readWriteLock.readLock().withLock {
         return dataList[index]
     }
 
@@ -223,7 +223,7 @@ class ListChangeAdapter<D>() {
      *
      * @return the list of elements
      */
-    fun getAll(): List<D> = withLock(readWriteLock.readLock()) {
+    fun getAll(): List<D> = readWriteLock.readLock().withLock {
         return dataList.toList()
     }
 

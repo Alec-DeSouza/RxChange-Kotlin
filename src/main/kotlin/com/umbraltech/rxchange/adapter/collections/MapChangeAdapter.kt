@@ -19,11 +19,11 @@ package com.umbraltech.rxchange.adapter.collections
 import com.umbraltech.rxchange.message.ChangeMessage
 import com.umbraltech.rxchange.message.MetaChangeMessage
 import com.umbraltech.rxchange.type.ChangeType
-import com.umbraltech.rxchange.withLock
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 import java.util.concurrent.locks.ReadWriteLock
 import java.util.concurrent.locks.ReentrantReadWriteLock
+import kotlin.concurrent.withLock
 
 /** Alias used for the type ChangeMessage<Map<K, D>> */
 typealias ChangeMessageMap<K, D> = ChangeMessage<Map<K, D>>
@@ -52,7 +52,7 @@ class MapChangeAdapter<K, D>() {
      *
      * @return true if the entry was added to the map, false otherwise
      */
-    fun add(key: K, data: D): Boolean = withLock(readWriteLock.writeLock()) {
+    fun add(key: K, data: D): Boolean = readWriteLock.writeLock().withLock {
 
         // Check if entry already exists
         if (key in dataMap) {
@@ -78,7 +78,7 @@ class MapChangeAdapter<K, D>() {
      *
      * @return true if all of the entries were added, false otherwise
      */
-    fun addAll(dataMap: Map<K, D>): Boolean = withLock(readWriteLock.writeLock()) {
+    fun addAll(dataMap: Map<K, D>): Boolean = readWriteLock.writeLock().withLock {
 
         // Check if entries already exist
         for (key: K in dataMap.keys) {
@@ -106,7 +106,7 @@ class MapChangeAdapter<K, D>() {
      *
      * @return true if the entry was removed, false otherwise
      */
-    fun remove(key: K): Boolean = withLock(readWriteLock.writeLock()) {
+    fun remove(key: K): Boolean = readWriteLock.writeLock().withLock {
 
         // Check if no entry to remove
         if (key !in dataMap) {
@@ -132,7 +132,7 @@ class MapChangeAdapter<K, D>() {
      *
      * @return true if all of the entries were removed, false otherwise
      */
-    fun removeAll(keySet: Set<K>): Boolean = withLock(readWriteLock.writeLock()) {
+    fun removeAll(keySet: Set<K>): Boolean = readWriteLock.writeLock().withLock {
 
         // Check if no entries to remove
         for (key: K in keySet) {
@@ -160,7 +160,7 @@ class MapChangeAdapter<K, D>() {
      *
      * @return true if the entry was updated, false otherwise
      */
-    fun update(key: K, data: D): Boolean = withLock(readWriteLock.writeLock()) {
+    fun update(key: K, data: D): Boolean = readWriteLock.writeLock().withLock {
 
         // Check if entry does not exist
         if (key !in dataMap) {
@@ -186,7 +186,7 @@ class MapChangeAdapter<K, D>() {
      *
      * @return true if all of the entries were updated, false otherwise
      */
-    fun updateAll(dataMap: Map<K, D>): Boolean = withLock(readWriteLock.writeLock()) {
+    fun updateAll(dataMap: Map<K, D>): Boolean = readWriteLock.writeLock().withLock {
 
         // Check if entries do not exist
         for (key: K in dataMap.keys) {
@@ -212,7 +212,7 @@ class MapChangeAdapter<K, D>() {
      *
      * @return the data associated with the key if found within the map, null otherwise
      */
-    operator fun get(key: K): D? = withLock(readWriteLock.readLock()) {
+    operator fun get(key: K): D? = readWriteLock.readLock().withLock {
         return dataMap[key]
     }
 
@@ -221,7 +221,7 @@ class MapChangeAdapter<K, D>() {
      *
      * @return the map containing the entries
      */
-    fun getAll(): Map<K, D> = withLock(readWriteLock.readLock()) {
+    fun getAll(): Map<K, D> = readWriteLock.readLock().withLock {
         return dataMap.toMap()
     }
 

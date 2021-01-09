@@ -19,11 +19,11 @@ package com.umbraltech.rxchange.adapter
 import com.umbraltech.rxchange.message.ChangeMessage
 import com.umbraltech.rxchange.message.MetaChangeMessage
 import com.umbraltech.rxchange.type.ChangeType
-import com.umbraltech.rxchange.withLock
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 import java.util.concurrent.locks.ReadWriteLock
 import java.util.concurrent.locks.ReentrantReadWriteLock
+import kotlin.concurrent.withLock
 
 /**
  * An adapter that implements the reactive change model for a single element
@@ -42,7 +42,7 @@ class SingleChangeAdapter<D>(@Volatile private var data: D) {
      *
      * @return true if the element was added, false otherwise
      */
-    fun update(data: D): Boolean = withLock(readWriteLock.writeLock()) {
+    fun update(data: D): Boolean = readWriteLock.writeLock().withLock {
         val oldData: D = this.data
         this.data = data
 
@@ -57,7 +57,7 @@ class SingleChangeAdapter<D>(@Volatile private var data: D) {
      *
      * @return the current data
      */
-    fun get(): D = withLock(readWriteLock.readLock()) {
+    fun get(): D = readWriteLock.readLock().withLock {
         return data
     }
 
