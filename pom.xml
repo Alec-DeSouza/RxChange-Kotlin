@@ -6,7 +6,7 @@
 
     <groupId>com.umbraltech</groupId>
     <artifactId>rxchange-kotlin</artifactId>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
 
     <name>RxChange-Kotlin</name>
     <description>An implementation of the reactive change model in Kotlin</description>
