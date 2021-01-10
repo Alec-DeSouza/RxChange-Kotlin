@@ -26,7 +26,7 @@ The reactive change model supports both individual changes (e.g. adding a single
 
 #### Message Layer
 
-The message layer is where the change messages are emitted. It is also the layer where the observers subscribe to and act upon these change events. Each change message contains snapshots of the data (both before and after the change), the type of change that occurred, and the metadata pertaining to the change itself (e.g. the element that was added).
+The message layer is where the change messages are emitted. It is also the layer where the observers subscribe to and act upon these change events. Each change message contains snapshots of the data (both before and after the change), the type of change that occurred, and a snapshot of the change itself (e.g. the element that was added).
 
 The reactive change model supports 3 types of data changes: add, remove, and update.
 
@@ -34,7 +34,7 @@ The reactive change model supports 3 types of data changes: add, remove, and upd
 
 ### Dependencies
 
-[![Maven Central](https://img.shields.io/maven-central/v/com.umbraltech/rxchange-kotlin/1.1.0.svg)](https://mvnrepository.com/artifact/com.umbraltech/rxchange-kotlin/1.1.0)
+[![Maven Central](https://img.shields.io/maven-central/v/com.umbraltech/rxchange-kotlin/1.2.0.svg)](https://mvnrepository.com/artifact/com.umbraltech/rxchange-kotlin/1.2.0)
 
 #### Gradle
 
@@ -57,12 +57,12 @@ implementation 'com.umbraltech:rxchange-kotlin:x.y.z'
 The following adapters are packaged with the RxChange-Kotlin library. Information regarding supported operations can be seen in the table below.
 
 
-| Adapter              | Corresponding Data    | Change Operations              | Metadata Available? |
-| :-----------:        | :-----------:      | -----------                      | :-----------:        |
-| SingleChangeAdapter  | Any             | update (data: D)                          | No                   |
-| ListChangeAdapter    | List             | add (data: D) <br> addAll (data: List) <br> addAt (index: Int, data: D) <br><br> remove (data: D) <br> removeAll (data: List) <br> removeAt (index: Int) <br><br> update (index: Int, data: D) | Yes         |
-| MapChangeAdapter     | Map               | add (key: K, data: D) <br> addAll (entries: Map) <br><br> remove (key: K) <br> removeAll (keys: Set) <br><br> update (key: K, data: D) <br> updateAll (entries: Map)                | Yes
-| SetChangeAdapter     | Set              | add (data: D) <br> addAll (data: Set) <br><br> remove (data: D) <br> removeAll (data: Set)                  | Yes
+| Adapter              | Corresponding Data    | Change Operations              
+| :-----------:        | :-----------:         | -----------                     
+| SingleChangeAdapter  | Any                   | update (data: D)                         
+| ListChangeAdapter    | List                  | add (data: D) <br> addAll (data: List) <br> addAt (index: Int, data: D) <br><br> remove (data: D) <br> removeAll (data: List) <br> removeAt (index: Int) <br><br> update (index: Int, data: D)
+| MapChangeAdapter     | Map                   | add (key: K, data: D) <br> addAll (entries: Map) <br><br> remove (key: K) <br> removeAll (keys: Set) <br><br> update (key: K, data: D) <br> updateAll (entries: Map)             
+| SetChangeAdapter     | Set                   | add (data: D) <br> addAll (data: Set) <br><br> remove (data: D) <br> removeAll (data: Set)                 
 
 ### Change Events
 
@@ -81,26 +81,11 @@ RxChange uses RxJava for listening to change events. The sample code below demon
 
 #### Reading Data
 
-The `ChangeMessage` class provides 3 properties:
+The `ChangeMessage` class provides 4 properties:
 - `oldPayload` - the data before the change
 - `newPayload` - the data after the change
 - `changeType` - the type of change that occurred with the data
-
-#### Reading Metadata
-
-The `MetaChangeMessage` class is an extension of the `ChangeMessage` class, and can be used to read the metadata corresponding to a change in data. In order to access the metadata, simply use the `metadata` property from a `MetaChangeMessage` instance.
-
-For the collections provided by the library, you can acquire access to the `MetaChangeMessage` instance simply by casting or mapping like in the sample code below.
-
-```Kotlin
-    listChangeAdapter.getObservable()
-                .map { it as MetaChangeMessage<List<Int?>, Int?> }
-                .subscribe { metaChangeMessage -> /* Logic */ }
-```
-
-For more information on what metadata values are provided, please refer to the documentation for the adapters.
-
-NOTE: If you know that the data types specified for the MetaChangeMessage are correct, then you can safely disregard the casting warnings.
+- `changeSnapshot` - the element associated with the change
 
 #### Applying Filters
 
@@ -116,61 +101,21 @@ The `ChangeTypeFilter` class allows for listening to changes of a specific type.
                 .subscribe { changeMessage -> /* Logic */ }
 ```
 
-##### Metadata Filter
-
-The `MetadataFilter` class allows executing logic only when certain types of metadata are provided.
-
-Using metadata filters can be especially useful if an adapter supports performing both single and batch updates. Information on the types of metadata supported by the built-in adapters are mentioned in the documentation.
-
-The examples below demonstrate how filtering can be done for both single and batch operations (for a list adapter).
-
-###### Single Change Filter
-
-```Kotlin
-    listChangeAdapter.getObservable()
-                .filter(MetadataFilter(Int::class))
-                .map { it as MetaChangeMessage<List<Int?>, Int?> }
-                .subscribe { metaChangeMessage -> /* Logic */ }
-```
-
-###### Batch Change Filter
-
-```Kotlin
-    listChangeAdapter.getObservable()
-                .filter(MetadataFilter(List::class))
-                .map { it as MetaChangeMessage<List<Int?>, List<Int?>> }
-                .subscribe { metaChangeMessage -> /* Logic */ }
-```
-
 #### Example
 
-The following example combines all of the segments listed above into a simple example that prints the values contained in each change message when data is added to the adapter:
+The following example combines all the segments listed above into a simple example that prints the values contained in each change message when data is added to the adapter:
 
 Code:
 
 ```Kotlin
-    val listChangeAdapter: ListChangeAdapter<Int?> = ListChangeAdapter()
+    val listChangeAdapter: ListChangeAdapter<Int> = ListChangeAdapter()
 
     listChangeAdapter.getObservable()
             .filter(ChangeTypeFilter(ChangeType.ADD))
-            .filter(MetadataFilter(Int::class))
-            .map { it as MetaChangeMessage<List<Int?>, Int?> }
-            .subscribe { metaChangeMessage ->
-                println("---- Observer 1 (Single) ----")
-                println("Old List: ${metaChangeMessage.oldData}")
-                println("New List: ${metaChangeMessage.newData}")
-                println("Metadata: ${metaChangeMessage.metadata}")
-            }
-
-    listChangeAdapter.getObservable()
-            .filter(ChangeTypeFilter(ChangeType.ADD))
-            .filter(MetadataFilter(List::class))
-            .map { it as MetaChangeMessage<List<Int?>, List<Int?>> }
-            .subscribe { metaChangeMessage ->
-                println("---- Observer 2 (Batch) ----")
-                println("Old List: ${metaChangeMessage.oldData}")
-                println("New List: ${metaChangeMessage.newData}")
-                println("Metadata: ${metaChangeMessage.metadata}")
+            .subscribe { changeMessage ->
+                println("Old List: ${changeMessage.oldData}")
+                println("New List: ${changeMessage.newData}")
+                println("Change: ${changeMessage.changeSnapshot}")
             }
 
     // Add the single integer to the dataset
@@ -183,14 +128,12 @@ Code:
 Output:
 
 ```
-    ---- Observer 1 (Single) ----
     Old List: []
     New List: [1]
-    Metadata: 1
-    ---- Observer 2 (Batch) ----
+    Change: [1]
     Old List: [1]
     New List: [1, 2, 3, 4]
-    Metadata: [2, 3, 4]
+    Change: [2, 3, 4]
 ```
 
 ## Additional Topics
