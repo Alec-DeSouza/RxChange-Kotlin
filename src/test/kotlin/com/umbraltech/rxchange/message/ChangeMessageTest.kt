@@ -26,7 +26,7 @@ class ChangeMessageTest {
 
     @Before
     fun setUp() {
-        changeMessage = ChangeMessage(1, 2, ChangeType.UPDATE)
+        changeMessage = ChangeMessage(1, 2, ChangeType.UPDATE, 2)
     }
 
     @Test
@@ -45,8 +45,13 @@ class ChangeMessageTest {
     }
 
     @Test
+    fun getChangeSnapshot() {
+        assertEquals("Change snapshot", 2, changeMessage.changeSnapshot)
+    }
+
+    @Test
     fun getString() {
-        val testMessage = "${ChangeMessage::class.simpleName}(oldData=${changeMessage.oldData}, newData=${changeMessage.newData}, changeType=${changeMessage.changeType})"
+        val testMessage = "${ChangeMessage::class.simpleName}(oldData=${changeMessage.oldData}, newData=${changeMessage.newData}, changeType=${changeMessage.changeType}, changeSnapshot=${changeMessage.changeSnapshot})"
 
         assertEquals("toString", testMessage, changeMessage.toString())
     }

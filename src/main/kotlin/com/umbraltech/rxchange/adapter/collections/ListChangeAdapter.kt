@@ -17,7 +17,6 @@
 package com.umbraltech.rxchange.adapter.collections
 
 import com.umbraltech.rxchange.message.ChangeMessage
-import com.umbraltech.rxchange.message.MetaChangeMessage
 import com.umbraltech.rxchange.type.ChangeType
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
@@ -47,7 +46,7 @@ class ListChangeAdapter<D>() {
     /**
      * Adds [data] to the list and emits a change message to surrounding observers
      *
-     * The metadata in the emitted change message will contain the [data] that was just added
+     * The change snapshot will contain [data] that was just added
      *
      * @return true always
      */
@@ -56,9 +55,10 @@ class ListChangeAdapter<D>() {
         dataList.add(data)
 
         val newListSnapshot: List<D> = dataList.toList()
+        val changeSnapshot: List<D> = listOf(data)
 
         // Signal addition
-        publishSubject.onNext(MetaChangeMessage(oldListSnapshot, newListSnapshot, ChangeType.ADD, data))
+        publishSubject.onNext(ChangeMessage(oldListSnapshot, newListSnapshot, ChangeType.ADD, changeSnapshot))
 
         return true
     }
@@ -66,7 +66,7 @@ class ListChangeAdapter<D>() {
     /**
      * Adds [data] to the list at the specified [index] and emits a change message to surrounding observers
      *
-     * The metadata in the emitted change message will contain the [data] that was just added
+     * The change snapshot will contain [data] that was just added
      *
      * @return true if the element was added to the list, false otherwise
      */
@@ -81,9 +81,10 @@ class ListChangeAdapter<D>() {
         dataList.add(index, data)
 
         val newListSnapshot: List<D> = dataList.toList()
+        val changeSnapshot: List<D> = listOf(data)
 
         // Signal addition
-        publishSubject.onNext(MetaChangeMessage(oldListSnapShot, newListSnapshot, ChangeType.ADD, data))
+        publishSubject.onNext(ChangeMessage(oldListSnapShot, newListSnapshot, ChangeType.ADD, changeSnapshot))
 
         return true
     }
@@ -91,7 +92,7 @@ class ListChangeAdapter<D>() {
     /**
      * Adds [dataList] to the list and emits a change message to surrounding observers
      *
-     * The metadata in the emitted change message will contain a snapshot of the [dataList] that was just added
+     * The change snapshot will contain a copy of [dataList] that was just added
      *
      * @return true always
      */
@@ -103,7 +104,7 @@ class ListChangeAdapter<D>() {
         val changeSnapshot: List<D> = dataList.toList()
 
         // Signal addition
-        publishSubject.onNext(MetaChangeMessage(oldListSnapshot, newListSnapshot, ChangeType.ADD, changeSnapshot))
+        publishSubject.onNext(ChangeMessage(oldListSnapshot, newListSnapshot, ChangeType.ADD, changeSnapshot))
 
         return true
     }
@@ -111,7 +112,7 @@ class ListChangeAdapter<D>() {
     /**
      * Removes [data] from the list and emits a change message to surrounding observers
      *
-     * The metadata in the emitted change message will contain the [data] that was just removed
+     * The change snapshot will contain [data] that was just removed
      *
      * @return true if the element was removed, false otherwise
      */
@@ -126,9 +127,10 @@ class ListChangeAdapter<D>() {
         dataList.remove(data)
 
         val newListSnapshot: List<D> = dataList.toList()
+        val changeSnapshot: List<D> = listOf(data)
 
         // Signal removal
-        publishSubject.onNext(MetaChangeMessage(oldListSnapshot, newListSnapshot, ChangeType.REMOVE, data))
+        publishSubject.onNext(ChangeMessage(oldListSnapshot, newListSnapshot, ChangeType.REMOVE, changeSnapshot))
 
         return true
     }
@@ -136,7 +138,7 @@ class ListChangeAdapter<D>() {
     /**
      * Removes data at the specified [index] and emits a change message to surrounding observers
      *
-     * The metadata in the emitted change message will contain the data that was just removed
+     * The change snapshot will contain the data that was just removed
      *
      * @return true if the element was removed, false otherwise
      */
@@ -151,9 +153,10 @@ class ListChangeAdapter<D>() {
         val data: D = dataList.removeAt(index)
 
         val newListSnapshot: List<D> = dataList.toList()
+        val changeSnapshot: List<D> = listOf(data)
 
         // Signal removal
-        publishSubject.onNext(MetaChangeMessage(oldListSnapshot, newListSnapshot, ChangeType.REMOVE, data))
+        publishSubject.onNext(ChangeMessage(oldListSnapshot, newListSnapshot, ChangeType.REMOVE, changeSnapshot))
 
         return true
     }
@@ -161,7 +164,7 @@ class ListChangeAdapter<D>() {
     /**
      * Removes [dataList] from the list and emits a change message to surrounding observers
      *
-     * The metadata in the emitted change message will contain a snapshot of the [dataList] that was just removed
+     * The change snapshot will contain a copy of [dataList] that was just removed
      *
      * @return true if all of the elements of [dataList] were removed, false otherwise
      */
@@ -179,7 +182,7 @@ class ListChangeAdapter<D>() {
         val changeSnapshot: List<D> = dataList.toList()
 
         // Signal removal
-        publishSubject.onNext(MetaChangeMessage(oldListSnapshot, newListSnapshot, ChangeType.REMOVE, changeSnapshot))
+        publishSubject.onNext(ChangeMessage(oldListSnapshot, newListSnapshot, ChangeType.REMOVE, changeSnapshot))
 
         return true
     }
@@ -187,7 +190,7 @@ class ListChangeAdapter<D>() {
     /**
      * Updates the element at the specified [index] with [data]
      *
-     * The metadata in the emitted change message will contain the [data] that was just updated
+     * The change snapshot will contain [data] that was just updated
      *
      * @return true if the element was updated, false otherwise
      */
@@ -202,9 +205,10 @@ class ListChangeAdapter<D>() {
         dataList[index] = data
 
         val newListSnapshot: List<D> = dataList.toList()
+        val changeSnapshot: List<D> = listOf(data)
 
         // Signal update
-        publishSubject.onNext(MetaChangeMessage(oldListSnapshot, newListSnapshot, ChangeType.UPDATE, data))
+        publishSubject.onNext(ChangeMessage(oldListSnapshot, newListSnapshot, ChangeType.UPDATE, changeSnapshot))
 
         return true
     }

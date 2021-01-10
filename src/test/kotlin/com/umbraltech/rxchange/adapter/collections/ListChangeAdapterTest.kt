@@ -48,9 +48,15 @@ class ListChangeAdapterTest {
                 listOf(0, 1, 2)
         )
 
+        val changeSnapshotList: MutableList<List<Int?>> = mutableListOf(
+            listOf(0),
+            listOf(1),
+            listOf(2)
+        )
+
         changeAdapter.getObservable()
                 .filter(ChangeTypeFilter(ChangeType.ADD))
-                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList))
+                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList, changeSnapshotList))
 
         // Perform sequence of updates
         for (i: Int in testList) {
@@ -76,9 +82,15 @@ class ListChangeAdapterTest {
                 listOf(0, 1, 2)
         )
 
+        val changeSnapshotList: MutableList<List<Int?>> = mutableListOf(
+            listOf(0),
+            listOf(1),
+            listOf(2)
+        )
+
         changeAdapter.getObservable()
                 .filter(ChangeTypeFilter(ChangeType.ADD))
-                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList))
+                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList, changeSnapshotList))
 
         // Perform sequence of updates
         for (i: Int in testList.indices) {
@@ -109,9 +121,13 @@ class ListChangeAdapterTest {
                 listOf(0, 1, 2)
         )
 
+        val changeSnapshotList: MutableList<List<Int?>> = mutableListOf(
+            listOf(0, 1, 2)
+        )
+
         changeAdapter.getObservable()
                 .filter(ChangeTypeFilter(ChangeType.ADD))
-                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList))
+                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList, changeSnapshotList))
 
         // Perform batch update
         assertTrue("Add all", changeAdapter.addAll(testList))
@@ -135,12 +151,18 @@ class ListChangeAdapterTest {
                 listOf()
         )
 
+        val changeSnapshotList: MutableList<List<Int?>> = mutableListOf(
+            listOf(0),
+            listOf(1),
+            listOf(2)
+        )
+
         // Set up initial values
         changeAdapter.addAll(testList)
 
         changeAdapter.getObservable()
                 .filter(ChangeTypeFilter(ChangeType.REMOVE))
-                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList))
+                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList, changeSnapshotList))
 
         // Perform sequence of updates
         for (i: Int in testList) {
@@ -175,15 +197,21 @@ class ListChangeAdapterTest {
                 listOf()
         )
 
+        val changeSnapshotList: MutableList<List<Int?>> = mutableListOf(
+            listOf(0),
+            listOf(1),
+            listOf(2)
+        )
+
         // Set up initial values
         changeAdapter.addAll(testList)
 
         changeAdapter.getObservable()
                 .filter(ChangeTypeFilter(ChangeType.REMOVE))
-                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList))
+                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList, changeSnapshotList))
 
         // Perform sequence of updates
-        for (i: Int in 0 until testList.size) {
+        for (i: Int in testList.indices) {
             assertTrue("Remove at", changeAdapter.removeAt(0))
         }
 
@@ -211,12 +239,16 @@ class ListChangeAdapterTest {
                 listOf()
         )
 
+        val changeSnapshotList: MutableList<List<Int?>> = mutableListOf(
+            listOf(0, 1, 2)
+        )
+
         // Set up initial values
         changeAdapter.addAll(testList)
 
         changeAdapter.getObservable()
                 .filter(ChangeTypeFilter(ChangeType.REMOVE))
-                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList))
+                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList, changeSnapshotList))
 
         // Perform batch update
         assertTrue("Remove", changeAdapter.removeAll(testList))
@@ -251,12 +283,18 @@ class ListChangeAdapterTest {
                 listOf(1, 2, 3)
         )
 
+        val changeSnapshotList: MutableList<List<Int?>> = mutableListOf(
+            listOf(1),
+            listOf(2),
+            listOf(3)
+        )
+
         // Set up initial values
         changeAdapter.addAll(testList)
 
         changeAdapter.getObservable()
                 .filter(ChangeTypeFilter(ChangeType.UPDATE))
-                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList))
+                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList, changeSnapshotList))
 
         // Perform sequence of updates
         for (i: Int in 0 until testList.size) {
@@ -282,7 +320,7 @@ class ListChangeAdapterTest {
         // Set up initial values
         changeAdapter.addAll(testList)
 
-        for (i: Int in 0 until testList.size) {
+        for (i: Int in testList.indices) {
             assertEquals("Get", testList[i], changeAdapter[i])
         }
     }

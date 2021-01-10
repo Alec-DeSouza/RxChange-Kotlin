@@ -48,9 +48,15 @@ class MapChangeAdapterTest {
                 mapOf(0 to "0", 1 to "1", 2 to "2")
         )
 
+        val changeSnapshotList: MutableList<Map<Int, String?>> = mutableListOf(
+            mapOf(0 to "0"),
+            mapOf(1 to "1"),
+            mapOf(2 to "2")
+        )
+
         changeAdapter.getObservable()
                 .filter(ChangeTypeFilter(ChangeType.ADD))
-                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList))
+                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList, changeSnapshotList))
 
         // Perform sequence of updates
         for ((key: Int, data: String) in testMap) {
@@ -86,9 +92,13 @@ class MapChangeAdapterTest {
                 mapOf(0 to "0", 1 to "1", 2 to "2")
         )
 
+        val changeSnapshotList: MutableList<Map<Int, String?>> = mutableListOf(
+            mapOf(0 to "0", 1 to "1", 2 to "2")
+        )
+
         changeAdapter.getObservable()
                 .filter(ChangeTypeFilter(ChangeType.ADD))
-                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList))
+                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList, changeSnapshotList))
 
         // Perform batch update
         assertTrue("Add all", changeAdapter.addAll(testMap))
@@ -124,12 +134,18 @@ class MapChangeAdapterTest {
                 mapOf()
         )
 
+        val changeSnapshotList: MutableList<Map<Int, String?>> = mutableListOf(
+            mapOf(0 to "0"),
+            mapOf(1 to "1"),
+            mapOf(2 to "2")
+        )
+
         // Set up initial values
         changeAdapter.addAll(testMap)
 
         changeAdapter.getObservable()
                 .filter(ChangeTypeFilter(ChangeType.REMOVE))
-                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList))
+                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList, changeSnapshotList))
 
         // Perform sequence of updates
         for (key: Int in testMap.keys) {
@@ -160,12 +176,16 @@ class MapChangeAdapterTest {
                 mapOf()
         )
 
+        val changeSnapshotList: MutableList<Map<Int, String?>> = mutableListOf(
+            mapOf(0 to "0", 1 to "1", 2 to "2")
+        )
+
         // Set up initial values
         changeAdapter.addAll(testMap)
 
         changeAdapter.getObservable()
                 .filter(ChangeTypeFilter(ChangeType.REMOVE))
-                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList))
+                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList, changeSnapshotList))
 
         // Perform batch update
         assertTrue("Remove all", changeAdapter.removeAll(testMap.keys))
@@ -200,12 +220,18 @@ class MapChangeAdapterTest {
                 mapOf(0 to "1", 1 to "2", 2 to "3")
         )
 
+        val changeSnapshotList: MutableList<Map<Int, String?>> = mutableListOf(
+            mapOf(0 to "1"),
+            mapOf(1 to "2"),
+            mapOf(2 to "3")
+        )
+
         // Set up initial values
         changeAdapter.addAll(testMap)
 
         changeAdapter.getObservable()
                 .filter(ChangeTypeFilter(ChangeType.UPDATE))
-                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList))
+                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList, changeSnapshotList))
 
         // Perform sequence of updates
         for ((key: Int, data: String) in finalTestMap) {
@@ -238,12 +264,16 @@ class MapChangeAdapterTest {
                 mapOf(0 to "1", 1 to "2", 2 to "3")
         )
 
+        val changeSnapshotList: MutableList<Map<Int, String?>> = mutableListOf(
+            mapOf(0 to "1", 1 to "2", 2 to "3")
+        )
+
         // Set up initial values
         changeAdapter.addAll(testMap)
 
         changeAdapter.getObservable()
                 .filter(ChangeTypeFilter(ChangeType.UPDATE))
-                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList))
+                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList, changeSnapshotList))
 
         // Perform batch update
         assertTrue("Update all", changeAdapter.updateAll(finalTestMap))

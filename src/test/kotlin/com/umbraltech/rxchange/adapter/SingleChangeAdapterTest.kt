@@ -38,10 +38,11 @@ class SingleChangeAdapterTest {
     fun update() {
         val oldPayloadList: MutableList<Int> = mutableListOf(0, 1, 2)
         val newPayloadList: MutableList<Int> = mutableListOf(1, 2, 3)
+        val changeSnapshotList: MutableList<Int> = mutableListOf(1, 2, 3)
 
         changeAdapter.getObservable()
                 .filter(ChangeTypeFilter(ChangeType.UPDATE))
-                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList))
+                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList, changeSnapshotList))
 
         for (i: Int in testList) {
             assertTrue("Update", changeAdapter.update(i))

@@ -1,219 +1,288 @@
-<HTML>
-<HEAD>
-    <meta charset="UTF-8">
-    <title>MapChangeAdapter - rxchange-kotlin</title>
-    <link rel="stylesheet" href="../../../style.css">
-</HEAD>
-<BODY>
-<a href="../../index.html">rxchange-kotlin</a>&nbsp;/&nbsp;<a href="../index.html">com.umbraltech.rxchange.adapter.collections</a>&nbsp;/&nbsp;<a
-        href="./index.html">MapChangeAdapter</a><br/>
-<br/>
-<h1>MapChangeAdapter</h1>
-<code><span class="keyword">class </span><span class="identifier">MapChangeAdapter</span><span
-        class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span
-        class="identifier">D</span><span class="symbol">&gt;</span></code>
-<p>An adapter that implements the reactive change model for maps</p>
-<h3>Parameters</h3>
-<p><a name="K"></a>
-    <code>K</code> - the type used for the keys</p>
-<p><a name="D"></a>
-    <code>D</code> - the type used for the data</p>
-<h3>Constructors</h3>
-<table>
-    <tbody>
-    <tr>
-        <td>
-            <p><a href="-init-.html">&lt;init&gt;</a></p>
-        </td>
-        <td>
-            <code><span class="identifier">MapChangeAdapter</span><span class="symbol">(</span><span class="identifier"
-                                                                                                     id="com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$<init>(kotlin.collections.Map((com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K, com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.D)))/initialDataMap">initialDataMap</span><span
-                    class="symbol">:</span>&nbsp;<a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span
-                    class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="index.html#K"><span
-                    class="identifier">K</span></a><span class="symbol">,</span>&nbsp;<a href="index.html#D"><span
-                    class="identifier">D</span></a><span class="symbol">&gt;</span><span class="symbol">)</span></code>
-            <p>Initializes the adapter with <a
-                    href="-init-.html#com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$<init>(kotlin.collections.Map((com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K, com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.D)))/initialDataMap">initialDataMap</a>
-                without emitting a change message</p>
-            <code><span class="identifier">MapChangeAdapter</span><span class="symbol">(</span><span
-                    class="symbol">)</span></code>
-            <p>Default constructor</p>
-        </td>
-    </tr>
-    </tbody>
-</table>
-<h3>Functions</h3>
-<table>
-    <tbody>
-    <tr>
-        <td>
-            <p><a href="add.html">add</a></p>
-        </td>
-        <td>
-            <code><span class="keyword">fun </span><span class="identifier">add</span><span class="symbol">(</span><span
-                    class="identifier"
-                    id="com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$add(com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K, com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.D)/key">key</span><span
-                    class="symbol">:</span>&nbsp;<a href="index.html#K"><span class="identifier">K</span></a><span
-                    class="symbol">, </span><span class="identifier"
-                                                  id="com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$add(com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K, com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.D)/data">data</span><span
-                    class="symbol">:</span>&nbsp;<a href="index.html#D"><span class="identifier">D</span></a><span
-                    class="symbol">)</span><span class="symbol">: </span><a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span
-                    class="identifier">Boolean</span></a></code>
-            <p>Adds the key-value pair entry (<a
-                    href="add.html#com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$add(com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K, com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.D)/key">key</a>,
-                <a href="add.html#com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$add(com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K, com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.D)/data">data</a>)
-                to the map and emits a change message to surrounding observers</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <p><a href="add-all.html">addAll</a></p>
-        </td>
-        <td>
-            <code><span class="keyword">fun </span><span class="identifier">addAll</span><span
-                    class="symbol">(</span><span class="identifier"
-                                                 id="com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$addAll(kotlin.collections.Map((com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K, com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.D)))/dataMap">dataMap</span><span
-                    class="symbol">:</span>&nbsp;<a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span
-                    class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="index.html#K"><span
-                    class="identifier">K</span></a><span class="symbol">,</span>&nbsp;<a href="index.html#D"><span
-                    class="identifier">D</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span
-                    class="symbol">: </span><a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span
-                    class="identifier">Boolean</span></a></code>
-            <p>Adds the key-value pair entries from <a
-                    href="add-all.html#com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$addAll(kotlin.collections.Map((com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K, com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.D)))/dataMap">dataMap</a>
-                to the map and emits a change message to surrounding observers</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <p><a href="get.html">get</a></p>
-        </td>
-        <td>
-            <code><span class="keyword">operator</span> <span class="keyword">fun </span><span
-                    class="identifier">get</span><span class="symbol">(</span><span class="identifier"
-                                                                                    id="com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$get(com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K)/key">key</span><span
-                    class="symbol">:</span>&nbsp;<a href="index.html#K"><span class="identifier">K</span></a><span
-                    class="symbol">)</span><span class="symbol">: </span><a href="index.html#D"><span
-                    class="identifier">D</span></a><span class="symbol">?</span></code>
-            <p>Retrieves the data of entry specified by <a
-                    href="get.html#com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$get(com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K)/key">key</a>
-                from the map</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <p><a href="get-all.html">getAll</a></p>
-        </td>
-        <td>
-            <code><span class="keyword">fun </span><span class="identifier">getAll</span><span
-                    class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span
-                    class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="index.html#K"><span
-                    class="identifier">K</span></a><span class="symbol">,</span>&nbsp;<a href="index.html#D"><span
-                    class="identifier">D</span></a><span class="symbol">&gt;</span></code>
-            <p>Retrieves a snapshot of the current map</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <p><a href="get-observable.html">getObservable</a></p>
-        </td>
-        <td>
-            <code><span class="keyword">fun </span><span class="identifier">getObservable</span><span
-                    class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a
-                    href="http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/Observable.html"><span class="identifier">Observable</span></a><span
-                    class="symbol">&lt;</span><a href="../-change-message-map.html"><span class="identifier">ChangeMessageMap</span></a><span
-                    class="symbol">&lt;</span><a href="index.html#K"><span class="identifier">K</span></a><span
-                    class="symbol">,</span>&nbsp;<a href="index.html#D"><span class="identifier">D</span></a><span
-                    class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
-            <p>Retrieves a reference to the observable used for listening to change messages</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <p><a href="remove.html">remove</a></p>
-        </td>
-        <td>
-            <code><span class="keyword">fun </span><span class="identifier">remove</span><span
-                    class="symbol">(</span><span class="identifier"
-                                                 id="com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$remove(com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K)/key">key</span><span
-                    class="symbol">:</span>&nbsp;<a href="index.html#K"><span class="identifier">K</span></a><span
-                    class="symbol">)</span><span class="symbol">: </span><a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span
-                    class="identifier">Boolean</span></a></code>
-            <p>Removes the entry specified by <a
-                    href="remove.html#com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$remove(com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K)/key">key</a>
-                and emits a change message to surrounding observers</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <p><a href="remove-all.html">removeAll</a></p>
-        </td>
-        <td>
-            <code><span class="keyword">fun </span><span class="identifier">removeAll</span><span
-                    class="symbol">(</span><span class="identifier"
-                                                 id="com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$removeAll(kotlin.collections.Set((com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K)))/keySet">keySet</span><span
-                    class="symbol">:</span>&nbsp;<a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span
-                    class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="index.html#K"><span
-                    class="identifier">K</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span
-                    class="symbol">: </span><a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span
-                    class="identifier">Boolean</span></a></code>
-            <p>Removes the entries specified by <a
-                    href="remove-all.html#com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$removeAll(kotlin.collections.Set((com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K)))/keySet">keySet</a>
-                from the map and emits a change message to surrounding observers</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <p><a href="update.html">update</a></p>
-        </td>
-        <td>
-            <code><span class="keyword">fun </span><span class="identifier">update</span><span
-                    class="symbol">(</span><span class="identifier"
-                                                 id="com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$update(com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K, com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.D)/key">key</span><span
-                    class="symbol">:</span>&nbsp;<a href="index.html#K"><span class="identifier">K</span></a><span
-                    class="symbol">, </span><span class="identifier"
-                                                  id="com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$update(com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K, com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.D)/data">data</span><span
-                    class="symbol">:</span>&nbsp;<a href="index.html#D"><span class="identifier">D</span></a><span
-                    class="symbol">)</span><span class="symbol">: </span><a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span
-                    class="identifier">Boolean</span></a></code>
-            <p>Updates the entry specified by <a
-                    href="update.html#com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$update(com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K, com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.D)/key">key</a>
-                with
-                <a href="update.html#com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$update(com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K, com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.D)/data">data</a>
-                in the map and emits a change message to surrounding observers</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <p><a href="update-all.html">updateAll</a></p>
-        </td>
-        <td>
-            <code><span class="keyword">fun </span><span class="identifier">updateAll</span><span
-                    class="symbol">(</span><span class="identifier"
-                                                 id="com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$updateAll(kotlin.collections.Map((com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K, com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.D)))/dataMap">dataMap</span><span
-                    class="symbol">:</span>&nbsp;<a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span
-                    class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="index.html#K"><span
-                    class="identifier">K</span></a><span class="symbol">,</span>&nbsp;<a href="index.html#D"><span
-                    class="identifier">D</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span
-                    class="symbol">: </span><a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span
-                    class="identifier">Boolean</span></a></code>
-            <p>Updates the entries specified by <a
-                    href="update-all.html#com.umbraltech.rxchange.adapter.collections.MapChangeAdapter$updateAll(kotlin.collections.Map((com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.K, com.umbraltech.rxchange.adapter.collections.MapChangeAdapter.D)))/dataMap">dataMap</a>
-                in the map and emits a change message to surrounding observers</p>
-        </td>
-    </tr>
-    </tbody>
-</table>
-</BODY>
-</HTML>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>MapChangeAdapter</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+    <link href="../../../styles/style.css" rel="Stylesheet">
+    <link href="../../../styles/logo-styles.css" rel="Stylesheet">
+    <link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+    <link href="../../../styles/main.css" rel="Stylesheet">
+    <script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+    <script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+    <script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+    <script type="text/javascript" src="../../../scripts/main.js" async="async"></script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="leftColumn">
+        <div id="logo"></div>
+        <div id="paneSearch"></div>
+        <div id="sideMenu"></div>
+      </div>
+      <div id="main">
+        <div id="leftToggler"><span class="icon-toggler"></span></div>
+        <script type="text/javascript" src="../../../scripts/pages.js"></script>
+        <script type="text/javascript" src="../../../scripts/main.js"></script>
+        <div class="main-content" id="content" pageIds="com.umbraltech.rxchange.adapter.collections/MapChangeAdapter///PointingToDeclaration//-576863007">
+          <div class="navigation-wrapper" id="navigation-wrapper">
+            <div class="breadcrumbs"><a href="../../index.html">rxchange-kotlin</a>/<a href="../index.html">com.umbraltech.rxchange.adapter.collections</a>/<a href="index.html">MapChangeAdapter</a></div>
+            <div class="pull-right d-flex">
+              <div id="searchBar"></div>
+            </div>
+          </div>
+          <div class="cover ">
+            <h1 class="cover"><span>Map</span><wbr></wbr><span>Change</span><wbr></wbr><span>Adapter</span></h1>
+            <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable="rxchange-kotlin/JVM"><div class="symbol monospace">class <a href="index.html">MapChangeAdapter</a>&lt;<a href="index.html">K</a>, <a href="index.html">D</a>&gt;<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><p class="paragraph">An adapter that implements the reactive change model for maps</p></div></div>
+          </div>
+          <div class="tabbedcontent">
+            <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Constructors">Constructors</button><button class="section-tab" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Parameters">Parameters</button></div>
+            <div class="tabs-section-body">
+              <h2 class="">Parameters</h2>
+              <div data-togglable="Parameters">
+                <div class="platform-hinted WithExtraAttributes" data-platform-hinted="data-platform-hinted" data-togglable="Parameters"><div class="content sourceset-depenent-content" data-active="" data-togglable="rxchange-kotlin/JVM"><div data-togglable="Parameters"><div class="table" data-togglable="Parameters"><div class="table-row" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM"><div class="main-subrow keyValue WithExtraAttributes"><div class=""><span class="inline-flex">K</span></div><div><div class="title"><div data-togglable="Parameters"><p class="paragraph">the type used for the keys</p></div></div></div></div></div><div class="table-row" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM"><div class="main-subrow keyValue WithExtraAttributes"><div class=""><span class="inline-flex">D</span></div><div><div class="title"><div data-togglable="Parameters"><p class="paragraph">the type used for the data</p></div></div></div></div></div></div></div></div></div>
+              </div>
+              <h2 class="tabbedcontent">Constructors</h2>
+              <div class="table" data-togglable="Constructors"><a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FMapChangeAdapter%2F%23kotlin.collections.Map%5BTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2CTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%5D%2FPointingToDeclaration%2F%5D%2FConstructors%2F-576863007" anchor-label="MapChangeAdapter" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FMapChangeAdapter%2F%23kotlin.collections.Map%5BTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2CTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%5D%2FPointingToDeclaration%2F%5D%2FConstructors%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>
+                <div class="table-row" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM">
+                  <div class="main-subrow keyValue TabbedContent">
+                    <div class=""><span class="inline-flex"><a href="-map-change-adapter.html">MapChangeAdapter</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FMapChangeAdapter%2F%23kotlin.collections.Map%5BTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2CTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%5D%2FPointingToDeclaration%2F%5D%2FConstructors%2F-576863007"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable="rxchange-kotlin/JVM"><div class="symbol monospace">fun &lt;<a href="index.html">K</a>, <a href="index.html">D</a>&gt; <a href="-map-change-adapter.html">MapChangeAdapter</a>(initialDataMap: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html">Map</a>&lt;<a href="index.html">K</a>, <a href="index.html">D</a>&gt;)<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief ">Initializes the adapter with <span data-unresolved-link="com.umbraltech.rxchange.adapter.collections/MapChangeAdapter/initialDataMap/#/PointingToCallableParameters(-1)/">initialDataMap</span> without emitting a change message</div></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FMapChangeAdapter%2F%23%2FPointingToDeclaration%2F%5D%2FConstructors%2F-576863007" anchor-label="MapChangeAdapter" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FMapChangeAdapter%2F%23%2FPointingToDeclaration%2F%5D%2FConstructors%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>
+                <div class="table-row" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM">
+                  <div class="main-subrow keyValue TabbedContent">
+                    <div class=""><span class="inline-flex"><a href="-map-change-adapter.html">MapChangeAdapter</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FMapChangeAdapter%2F%23%2FPointingToDeclaration%2F%5D%2FConstructors%2F-576863007"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable="rxchange-kotlin/JVM"><div class="symbol monospace">fun <a href="-map-change-adapter.html">MapChangeAdapter</a>()<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief ">Default constructor</div></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h2 class="">Functions</h2>
+              <div class="table" data-togglable="Functions"><a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2Fadd%2F%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" anchor-label="add" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2Fadd%2F%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>
+                <div class="table-row" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="add.html">add</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2Fadd%2F%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title"><div class="divergent-group" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM"><div class="with-platform-tags"><span class="pull-right"></span></div>
+
+  <div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable="rxchange-kotlin/JVM"><div class="symbol monospace">fun <a href="add.html">add</a>(key: <a href="index.html">K</a>, data: <a href="index.html">D</a>): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+  </div>
+<a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2Fadd%2F%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" anchor-label="add" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2Fadd%2F%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a><div class="brief "><a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2Fadd%2F%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" anchor-label="add" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2Fadd%2F%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>Adds the key-value pair entry (<span data-unresolved-link="com.umbraltech.rxchange.adapter.collections/MapChangeAdapter/key/#/PointingToCallableParameters(-1)/">key</span>, <span data-unresolved-link="com.umbraltech.rxchange.adapter.collections/MapChangeAdapter/data/#/PointingToCallableParameters(-1)/">data</span>) to the map and emits a change message to surrounding observersThe change snapshot will contain the entry that was just added</div></div>
+</div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FaddAll%2F%23kotlin.collections.Map%5BTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2CTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%5D%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" anchor-label="addAll" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FaddAll%2F%23kotlin.collections.Map%5BTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2CTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%5D%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>
+                <div class="table-row" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="add-all.html">addAll</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FaddAll%2F%23kotlin.collections.Map%5BTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2CTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%5D%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title"><div class="divergent-group" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM"><div class="with-platform-tags"><span class="pull-right"></span></div>
+
+  <div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable="rxchange-kotlin/JVM"><div class="symbol monospace">fun <a href="add-all.html">addAll</a>(dataMap: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html">Map</a>&lt;<a href="index.html">K</a>, <a href="index.html">D</a>&gt;): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+  </div>
+<a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FaddAll%2F%23kotlin.collections.Map%5BTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2CTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%5D%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" anchor-label="addAll" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FaddAll%2F%23kotlin.collections.Map%5BTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2CTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%5D%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a><div class="brief "><a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FaddAll%2F%23kotlin.collections.Map%5BTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2CTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%5D%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" anchor-label="addAll" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FaddAll%2F%23kotlin.collections.Map%5BTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2CTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%5D%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>Adds the key-value pair entries from <span data-unresolved-link="com.umbraltech.rxchange.adapter.collections/MapChangeAdapter/dataMap/#/PointingToCallableParameters(-1)/">dataMap</span> to the map and emits a change message to surrounding observersThe change snapshot will contain a copy of the entries that were just added</div></div>
+</div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="%5Bkotlin%2FAny%2Fequals%2F%23kotlin.Any%3F%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" anchor-label="equals" id="%5Bkotlin%2FAny%2Fequals%2F%23kotlin.Any%3F%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>
+                <div class="table-row" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="../../com.umbraltech.rxchange.observer/-change-message-observer/index.html#%5Bkotlin%2FAny%2Fequals%2F%23kotlin.Any%3F%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007">equals</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="%5Bkotlin%2FAny%2Fequals%2F%23kotlin.Any%3F%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title"><div class="divergent-group" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM"><div class="with-platform-tags"><span class="pull-right"></span></div>
+
+  <div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable="rxchange-kotlin/JVM"><div class="symbol monospace">open operator fun <a href="../../com.umbraltech.rxchange.observer/-change-message-observer/index.html#%5Bkotlin%2FAny%2Fequals%2F%23kotlin.Any%3F%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007">equals</a>(other: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a>?): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+  </div>
+</div>
+</div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2Fget%2F%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" anchor-label="get" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2Fget%2F%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>
+                <div class="table-row" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="get.html">get</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2Fget%2F%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title"><div class="divergent-group" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM"><div class="with-platform-tags"><span class="pull-right"></span></div>
+
+  <div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable="rxchange-kotlin/JVM"><div class="symbol monospace">operator fun <a href="get.html">get</a>(key: <a href="index.html">K</a>): <a href="index.html">D</a>?<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+  </div>
+<a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2Fget%2F%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" anchor-label="get" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2Fget%2F%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a><div class="brief "><a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2Fget%2F%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" anchor-label="get" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2Fget%2F%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>Retrieves the data of entry specified by <span data-unresolved-link="com.umbraltech.rxchange.adapter.collections/MapChangeAdapter/key/#/PointingToCallableParameters(-1)/">key</span> from the map</div></div>
+</div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FgetAll%2F%23%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" anchor-label="getAll" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FgetAll%2F%23%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>
+                <div class="table-row" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="get-all.html">getAll</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FgetAll%2F%23%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title"><div class="divergent-group" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM"><div class="with-platform-tags"><span class="pull-right"></span></div>
+
+  <div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable="rxchange-kotlin/JVM"><div class="symbol monospace">fun <a href="get-all.html">getAll</a>(): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html">Map</a>&lt;<a href="index.html">K</a>, <a href="index.html">D</a>&gt;<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+  </div>
+<a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FgetAll%2F%23%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" anchor-label="getAll" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FgetAll%2F%23%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a><div class="brief "><a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FgetAll%2F%23%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" anchor-label="getAll" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FgetAll%2F%23%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>Retrieves a snapshot of the current map</div></div>
+</div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FgetObservable%2F%23%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" anchor-label="getObservable" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FgetObservable%2F%23%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>
+                <div class="table-row" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="get-observable.html">getObservable</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FgetObservable%2F%23%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title"><div class="divergent-group" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM"><div class="with-platform-tags"><span class="pull-right"></span></div>
+
+  <div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable="rxchange-kotlin/JVM"><div class="symbol monospace">fun <a href="get-observable.html">getObservable</a>(): <a href="http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/Observable.html">Observable</a>&lt;<a href="../index.html#%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageMap%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007">ChangeMessageMap</a>&lt;<a href="index.html">K</a>, <a href="index.html">D</a>&gt;&gt;<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+  </div>
+<a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FgetObservable%2F%23%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" anchor-label="getObservable" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FgetObservable%2F%23%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a><div class="brief "><a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FgetObservable%2F%23%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" anchor-label="getObservable" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FgetObservable%2F%23%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>Retrieves a reference to the observable used for listening to change messages</div></div>
+</div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="%5Bkotlin%2FAny%2FhashCode%2F%23%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" anchor-label="hashCode" id="%5Bkotlin%2FAny%2FhashCode%2F%23%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>
+                <div class="table-row" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="../../com.umbraltech.rxchange.observer/-change-message-observer/index.html#%5Bkotlin%2FAny%2FhashCode%2F%23%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007">hashCode</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="%5Bkotlin%2FAny%2FhashCode%2F%23%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title"><div class="divergent-group" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM"><div class="with-platform-tags"><span class="pull-right"></span></div>
+
+  <div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable="rxchange-kotlin/JVM"><div class="symbol monospace">open fun <a href="../../com.umbraltech.rxchange.observer/-change-message-observer/index.html#%5Bkotlin%2FAny%2FhashCode%2F%23%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007">hashCode</a>(): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+  </div>
+</div>
+</div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2Fremove%2F%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" anchor-label="remove" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2Fremove%2F%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>
+                <div class="table-row" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="remove.html">remove</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2Fremove%2F%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title"><div class="divergent-group" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM"><div class="with-platform-tags"><span class="pull-right"></span></div>
+
+  <div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable="rxchange-kotlin/JVM"><div class="symbol monospace">fun <a href="remove.html">remove</a>(key: <a href="index.html">K</a>): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+  </div>
+<a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2Fremove%2F%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" anchor-label="remove" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2Fremove%2F%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a><div class="brief "><a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2Fremove%2F%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" anchor-label="remove" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2Fremove%2F%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>Removes the entry specified by <span data-unresolved-link="com.umbraltech.rxchange.adapter.collections/MapChangeAdapter/key/#/PointingToCallableParameters(-1)/">key</span> and emits a change message to surrounding observersThe change snapshot will contain the entry that was just removed</div></div>
+</div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FremoveAll%2F%23kotlin.collections.Set%5BTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%5D%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" anchor-label="removeAll" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FremoveAll%2F%23kotlin.collections.Set%5BTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%5D%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>
+                <div class="table-row" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="remove-all.html">removeAll</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FremoveAll%2F%23kotlin.collections.Set%5BTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%5D%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title"><div class="divergent-group" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM"><div class="with-platform-tags"><span class="pull-right"></span></div>
+
+  <div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable="rxchange-kotlin/JVM"><div class="symbol monospace">fun <a href="remove-all.html">removeAll</a>(keySet: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html">Set</a>&lt;<a href="index.html">K</a>&gt;): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+  </div>
+<a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FremoveAll%2F%23kotlin.collections.Set%5BTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%5D%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" anchor-label="removeAll" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FremoveAll%2F%23kotlin.collections.Set%5BTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%5D%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a><div class="brief "><a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FremoveAll%2F%23kotlin.collections.Set%5BTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%5D%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" anchor-label="removeAll" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FremoveAll%2F%23kotlin.collections.Set%5BTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%5D%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>Removes the entries specified by <span data-unresolved-link="com.umbraltech.rxchange.adapter.collections/MapChangeAdapter/keySet/#/PointingToCallableParameters(-1)/">keySet</span> from the map and emits a change message to surrounding observersThe change snapshot will contain a copy of the entries that were just removed</div></div>
+</div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="%5Bkotlin%2FAny%2FtoString%2F%23%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" anchor-label="toString" id="%5Bkotlin%2FAny%2FtoString%2F%23%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>
+                <div class="table-row" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="../../com.umbraltech.rxchange.observer/-change-message-observer/index.html#%5Bkotlin%2FAny%2FtoString%2F%23%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007">toString</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="%5Bkotlin%2FAny%2FtoString%2F%23%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title"><div class="divergent-group" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM"><div class="with-platform-tags"><span class="pull-right"></span></div>
+
+  <div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable="rxchange-kotlin/JVM"><div class="symbol monospace">open fun <a href="../../com.umbraltech.rxchange.observer/-change-message-observer/index.html#%5Bkotlin%2FAny%2FtoString%2F%23%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007">toString</a>(): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+  </div>
+</div>
+</div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2Fupdate%2F%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" anchor-label="update" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2Fupdate%2F%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>
+                <div class="table-row" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="update.html">update</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2Fupdate%2F%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title"><div class="divergent-group" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM"><div class="with-platform-tags"><span class="pull-right"></span></div>
+
+  <div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable="rxchange-kotlin/JVM"><div class="symbol monospace">fun <a href="update.html">update</a>(key: <a href="index.html">K</a>, data: <a href="index.html">D</a>): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+  </div>
+<a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2Fupdate%2F%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" anchor-label="update" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2Fupdate%2F%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a><div class="brief "><a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2Fupdate%2F%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" anchor-label="update" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2Fupdate%2F%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%23TypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>Updates the entry specified by <span data-unresolved-link="com.umbraltech.rxchange.adapter.collections/MapChangeAdapter/key/#/PointingToCallableParameters(-1)/">key</span> with <span data-unresolved-link="com.umbraltech.rxchange.adapter.collections/MapChangeAdapter/data/#/PointingToCallableParameters(-1)/">data</span> in the map and emits a change message to surrounding observersThe change snapshot will contain the entry that was just updated</div></div>
+</div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FupdateAll%2F%23kotlin.collections.Map%5BTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2CTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%5D%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" anchor-label="updateAll" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FupdateAll%2F%23kotlin.collections.Map%5BTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2CTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%5D%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>
+                <div class="table-row" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="update-all.html">updateAll</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FupdateAll%2F%23kotlin.collections.Map%5BTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2CTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%5D%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title"><div class="divergent-group" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM"><div class="with-platform-tags"><span class="pull-right"></span></div>
+
+  <div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable="rxchange-kotlin/JVM"><div class="symbol monospace">fun <a href="update-all.html">updateAll</a>(dataMap: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html">Map</a>&lt;<a href="index.html">K</a>, <a href="index.html">D</a>&gt;): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+  </div>
+<a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FupdateAll%2F%23kotlin.collections.Map%5BTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2CTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%5D%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" anchor-label="updateAll" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FupdateAll%2F%23kotlin.collections.Map%5BTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2CTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%5D%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a><div class="brief "><a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FupdateAll%2F%23kotlin.collections.Map%5BTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2CTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%5D%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" anchor-label="updateAll" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2FupdateAll%2F%23kotlin.collections.Map%5BTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%2CTypeParam%28bounds%3D%5Bkotlin.Any%3F%5D%29%5D%2FPointingToDeclaration%2F%5D%2FFunctions%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>Updates the entries specified by <span data-unresolved-link="com.umbraltech.rxchange.adapter.collections/MapChangeAdapter/dataMap/#/PointingToCallableParameters(-1)/">dataMap</span> in the map and emits a change message to surrounding observersThe change snapshot will contain a copy of the entries that were just updated</div></div>
+</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer"><span class="go-to-top-icon"><a href="#content"></a></span><span>© 2020 Copyright</span><span class="pull-right"><span>Sponsored and developed by dokka</span><a href="https://github.com/Kotlin/dokka"><span class="padded-icon"></span></a></span></div>
+      </div>
+    </div>
+  </body>
+</html>
+

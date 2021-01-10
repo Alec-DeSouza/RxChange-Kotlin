@@ -48,9 +48,15 @@ class SetChangeAdapterTest {
                 setOf(0, 1, 2)
         )
 
+        val changeSnapshotList: MutableList<Set<Int>> = mutableListOf(
+            setOf(0),
+            setOf(1),
+            setOf(2)
+        )
+
         changeAdapter.getObservable()
                 .filter(ChangeTypeFilter(ChangeType.ADD))
-                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList))
+                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList, changeSnapshotList))
 
         // Perform sequence of updates
         for (i: Int in testSet) {
@@ -86,9 +92,13 @@ class SetChangeAdapterTest {
                 setOf(0, 1, 2)
         )
 
+        val changeSnapshotList: MutableList<Set<Int>> = mutableListOf(
+            setOf(0, 1, 2)
+        )
+
         changeAdapter.getObservable()
                 .filter(ChangeTypeFilter(ChangeType.ADD))
-                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList))
+                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList, changeSnapshotList))
 
         // Perform batch update
         assertTrue("Add all", changeAdapter.addAll(testSet))
@@ -124,12 +134,18 @@ class SetChangeAdapterTest {
                 setOf()
         )
 
+        val changeSnapshotList: MutableList<Set<Int>> = mutableListOf(
+            setOf(0),
+            setOf(1),
+            setOf(2)
+        )
+
         // Set up initial values
         changeAdapter.addAll(testSet)
 
         changeAdapter.getObservable()
                 .filter(ChangeTypeFilter(ChangeType.REMOVE))
-                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList))
+                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList, changeSnapshotList))
 
         // Perform sequence of updates
         for (i: Int in testSet) {
@@ -162,12 +178,16 @@ class SetChangeAdapterTest {
                 setOf()
         )
 
+        val changeSnapshotList: MutableList<Set<Int>> = mutableListOf(
+            setOf(0, 1, 2)
+        )
+
         // Set up initial values
         changeAdapter.addAll(testSet)
 
         changeAdapter.getObservable()
                 .filter(ChangeTypeFilter(ChangeType.REMOVE))
-                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList))
+                .subscribe(ChangePayloadTestObserver(oldPayloadList, newPayloadList, changeSnapshotList))
 
         // Perform batch update
         assertTrue("Remove all", changeAdapter.removeAll(testSet))

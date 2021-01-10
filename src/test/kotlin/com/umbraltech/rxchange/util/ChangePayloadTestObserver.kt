@@ -18,16 +18,18 @@ package com.umbraltech.rxchange.util
 
 import com.umbraltech.rxchange.message.ChangeMessage
 import com.umbraltech.rxchange.observer.ChangeMessageObserver
-import org.junit.Assert
+import org.junit.Assert.assertEquals
 
 class ChangePayloadTestObserver<D>(private val oldPayloadList: MutableList<D>,
-                                   private val newPayloadList: MutableList<D>)
+                                   private val newPayloadList: MutableList<D>,
+                                   private val changeSnapshotList: MutableList<D>)
     : ChangeMessageObserver<D>() {
 
     override fun onNext(changeMessage: ChangeMessage<D>) {
         println(changeMessage)
 
-        Assert.assertEquals("Old payload", oldPayloadList.removeAt(0), changeMessage.oldData)
-        Assert.assertEquals("New payload", newPayloadList.removeAt(0), changeMessage.newData)
+        assertEquals("Old payload", oldPayloadList.removeAt(0), changeMessage.oldData)
+        assertEquals("New payload", newPayloadList.removeAt(0), changeMessage.newData)
+        assertEquals("Change snapshot", changeSnapshotList.removeAt(0), changeMessage.changeSnapshot)
     }
 }

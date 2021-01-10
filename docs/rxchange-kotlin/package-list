@@ -1,4 +1,4 @@
-$dokka.format:html
+$dokka.format:html-v1
 $dokka.linkExtension:html
 
 com.umbraltech.rxchange.adapter
@@ -7,3 +7,4 @@ com.umbraltech.rxchange.filter
 com.umbraltech.rxchange.message
 com.umbraltech.rxchange.observer
 com.umbraltech.rxchange.type
+

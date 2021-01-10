@@ -17,7 +17,6 @@
 package com.umbraltech.rxchange.adapter.collections
 
 import com.umbraltech.rxchange.message.ChangeMessage
-import com.umbraltech.rxchange.message.MetaChangeMessage
 import com.umbraltech.rxchange.type.ChangeType
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
@@ -47,7 +46,7 @@ class SetChangeAdapter<D>() {
     /**
      * Adds [data] to the set and emits a change message to surrounding observers
      *
-     * The metadata in the emitted change message will contain the [data] that was added
+     * The change snapshot will contain [data] that was added
      *
      * @return true if the element was added, false otherwise
      */
@@ -62,9 +61,10 @@ class SetChangeAdapter<D>() {
         dataSet.add(data)
 
         val newSetSnapshot: Set<D> = dataSet.toSet()
+        val changeSnapshot: Set<D> = setOf(data)
 
         // Signal addition
-        publishSubject.onNext(MetaChangeMessage(oldSetSnapshot, newSetSnapshot, ChangeType.ADD, data))
+        publishSubject.onNext(ChangeMessage(oldSetSnapshot, newSetSnapshot, ChangeType.ADD, changeSnapshot))
 
         return true
     }
@@ -72,7 +72,7 @@ class SetChangeAdapter<D>() {
     /**
      * Adds [dataSet] to the set and emits a change message to surrounding observers
      *
-     * The metadata in the emitted change message will contain a snapshot of the [dataSet] that was just added
+     * The change snapshot will contain a copy of [dataSet] that was just added
      *
      * @return true if all of the elements of [dataSet] were added, false otherwise
      */
@@ -90,7 +90,7 @@ class SetChangeAdapter<D>() {
         val changeSnapshot: Set<D> = dataSet.toSet()
 
         // Signal addition
-        publishSubject.onNext(MetaChangeMessage(oldSetSnapshot, newSetSnapshot, ChangeType.ADD, changeSnapshot))
+        publishSubject.onNext(ChangeMessage(oldSetSnapshot, newSetSnapshot, ChangeType.ADD, changeSnapshot))
 
         return true
     }
@@ -98,7 +98,7 @@ class SetChangeAdapter<D>() {
     /**
      * Removes [data] from the set and emits a change message to surrounding observers
      *
-     * The metadata in the emitted change message will contain the [data] that was just removed
+     * The change snapshot will contain [data] that was just removed
      *
      * @return true if the element was removed, false otherwise
      */
@@ -113,9 +113,10 @@ class SetChangeAdapter<D>() {
         dataSet.remove(data)
 
         val newSetSnapshot: Set<D> = dataSet.toSet()
+        val changeSnapshot: Set<D> = setOf(data)
 
         // Signal removal
-        publishSubject.onNext(MetaChangeMessage(oldSetSnapshot, newSetSnapshot, ChangeType.REMOVE, data))
+        publishSubject.onNext(ChangeMessage(oldSetSnapshot, newSetSnapshot, ChangeType.REMOVE, changeSnapshot))
 
         return true
     }
@@ -123,7 +124,7 @@ class SetChangeAdapter<D>() {
     /**
      * Removes [dataSet] from the set and emits a change message to surrounding observers
      *
-     * The metadata in the emitted change message will contain a snapshot of the [dataSet] that was just removed
+     * The change snapshot will contain a copy of [dataSet] that was just removed
      *
      * @return true if all of the elements of [dataSet] were removed, false otherwise
      */
@@ -141,7 +142,7 @@ class SetChangeAdapter<D>() {
         val changeSnapshot: Set<D> = dataSet.toSet()
 
         // Signal removal
-        publishSubject.onNext(MetaChangeMessage(oldSetSnapshot, newSetSnapshot, ChangeType.REMOVE, changeSnapshot))
+        publishSubject.onNext(ChangeMessage(oldSetSnapshot, newSetSnapshot, ChangeType.REMOVE, changeSnapshot))
 
         return true
     }

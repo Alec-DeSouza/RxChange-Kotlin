@@ -17,7 +17,6 @@
 package com.umbraltech.rxchange.adapter.collections
 
 import com.umbraltech.rxchange.message.ChangeMessage
-import com.umbraltech.rxchange.message.MetaChangeMessage
 import com.umbraltech.rxchange.type.ChangeType
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
@@ -48,7 +47,7 @@ class MapChangeAdapter<K, D>() {
     /**
      * Adds the key-value pair entry ([key], [data]) to the map and emits a change message to surrounding observers
      *
-     * The metadata in the emitted change message will contain a snapshot of the entry that was just added
+     * The change snapshot will contain the entry that was just added
      *
      * @return true if the entry was added to the map, false otherwise
      */
@@ -63,10 +62,10 @@ class MapChangeAdapter<K, D>() {
         dataMap[key] = data
 
         val newMapSnapshot: Map<K, D> = dataMap.toMap()
-        val changeSnapshot: Map.Entry<K, D> = mapOf(key to data).iterator().next()
+        val changeSnapshot: Map<K, D> = mapOf(key to data)
 
         // Signal addition
-        publishSubject.onNext(MetaChangeMessage(oldMapSnapshot, newMapSnapshot, ChangeType.ADD, changeSnapshot))
+        publishSubject.onNext(ChangeMessage(oldMapSnapshot, newMapSnapshot, ChangeType.ADD, changeSnapshot))
 
         return true
     }
@@ -74,7 +73,7 @@ class MapChangeAdapter<K, D>() {
     /**
      * Adds the key-value pair entries from [dataMap] to the map and emits a change message to surrounding observers
      *
-     * The metadata in the emitted change message will contain a snapshot of the entries that were just added
+     * The change snapshot will contain a copy of the entries that were just added
      *
      * @return true if all of the entries were added, false otherwise
      */
@@ -94,7 +93,7 @@ class MapChangeAdapter<K, D>() {
         val changeSnapshot: Map<K, D> = dataMap.toMap()
 
         // Signal addition
-        publishSubject.onNext(MetaChangeMessage(oldMapSnapshot, newMapSnapshot, ChangeType.ADD, changeSnapshot))
+        publishSubject.onNext(ChangeMessage(oldMapSnapshot, newMapSnapshot, ChangeType.ADD, changeSnapshot))
 
         return true
     }
@@ -102,7 +101,7 @@ class MapChangeAdapter<K, D>() {
     /**
      * Removes the entry specified by [key] and emits a change message to surrounding observers
      *
-     * The metadata in the emitted change message will contain a snapshot of the entry that was just removed
+     * The change snapshot will contain the entry that was just removed
      *
      * @return true if the entry was removed, false otherwise
      */
@@ -117,10 +116,10 @@ class MapChangeAdapter<K, D>() {
         val resultData: D = dataMap.remove(key)!!
 
         val newMapSnapshot: Map<K, D> = dataMap.toMap()
-        val changeSnapshot: Map.Entry<K, D> = mapOf(key to resultData).iterator().next()
+        val changeSnapshot: Map<K, D> = mapOf(key to resultData)
 
         // Signal removal
-        publishSubject.onNext(MetaChangeMessage(oldMapSnapshot, newMapSnapshot, ChangeType.REMOVE, changeSnapshot))
+        publishSubject.onNext(ChangeMessage(oldMapSnapshot, newMapSnapshot, ChangeType.REMOVE, changeSnapshot))
 
         return true
     }
@@ -128,7 +127,7 @@ class MapChangeAdapter<K, D>() {
     /**
      * Removes the entries specified by [keySet] from the map and emits a change message to surrounding observers
      *
-     * The metadata in the emitted change message will contain a snapshot of the entries that were just removed
+     * The change snapshot will contain a copy of the entries that were just removed
      *
      * @return true if all of the entries were removed, false otherwise
      */
@@ -145,10 +144,10 @@ class MapChangeAdapter<K, D>() {
         this.dataMap.keys.removeAll(keySet)
 
         val newMapSnapshot: Map<K, D> = this.dataMap.toMap()
-        val changeSnapshot: Map<K, D> = oldMapSnapshot - keySet
+        val changeSnapshot: Map<K, D> = oldMapSnapshot - newMapSnapshot.keys
 
         // Signal removal
-        publishSubject.onNext(MetaChangeMessage(oldMapSnapshot, newMapSnapshot, ChangeType.REMOVE, changeSnapshot))
+        publishSubject.onNext(ChangeMessage(oldMapSnapshot, newMapSnapshot, ChangeType.REMOVE, changeSnapshot))
 
         return true
     }
@@ -156,7 +155,7 @@ class MapChangeAdapter<K, D>() {
     /**
      * Updates the entry specified by [key] with [data] in the map and emits a change message to surrounding observers
      *
-     * The metadata in the emitted change message will contain a snapshot of the entry that was just updated
+     * The change snapshot will contain the entry that was just updated
      *
      * @return true if the entry was updated, false otherwise
      */
@@ -171,10 +170,10 @@ class MapChangeAdapter<K, D>() {
         dataMap[key] = data
 
         val newMapSnapshot: Map<K, D> = this.dataMap.toMap()
-        val changeSnapshot: Map.Entry<K, D> = mapOf(key to data).iterator().next()
+        val changeSnapshot: Map<K, D> = mapOf(key to data)
 
         // Signal update
-        publishSubject.onNext(MetaChangeMessage(oldMapSnapshot, newMapSnapshot, ChangeType.UPDATE, changeSnapshot))
+        publishSubject.onNext(ChangeMessage(oldMapSnapshot, newMapSnapshot, ChangeType.UPDATE, changeSnapshot))
 
         return true
     }
@@ -182,7 +181,7 @@ class MapChangeAdapter<K, D>() {
     /**
      * Updates the entries specified by [dataMap] in the map and emits a change message to surrounding observers
      *
-     * The metadata in the emitted change message will contain a snapshot of the entries that were just updated
+     * The change snapshot will contain a copy of the entries that were just updated
      *
      * @return true if all of the entries were updated, false otherwise
      */
@@ -202,7 +201,7 @@ class MapChangeAdapter<K, D>() {
         val changeSnapshot: Map<K, D> = dataMap.toMap()
 
         // Signal update
-        publishSubject.onNext(MetaChangeMessage(oldMapSnapshot, newMapSnapshot, ChangeType.UPDATE, changeSnapshot))
+        publishSubject.onNext(ChangeMessage(oldMapSnapshot, newMapSnapshot, ChangeType.UPDATE, changeSnapshot))
 
         return true
     }

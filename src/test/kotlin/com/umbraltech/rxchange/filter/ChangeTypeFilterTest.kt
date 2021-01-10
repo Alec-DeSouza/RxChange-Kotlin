@@ -28,14 +28,14 @@ class ChangeTypeFilterTest {
 
     @Before
     fun setUp() {
-        changeMessage = ChangeMessage(0, 1, ChangeType.UPDATE)
+        changeMessage = ChangeMessage(0, 1, ChangeType.UPDATE, 1)
     }
 
     @Test
     fun test() {
-        val addTypeFilter: ChangeTypeFilter = ChangeTypeFilter(ChangeType.ADD)
-        val removeTypeFilter: ChangeTypeFilter = ChangeTypeFilter(ChangeType.REMOVE)
-        val updateTypeFilter: ChangeTypeFilter = ChangeTypeFilter(ChangeType.UPDATE)
+        val addTypeFilter = ChangeTypeFilter(ChangeType.ADD)
+        val removeTypeFilter = ChangeTypeFilter(ChangeType.REMOVE)
+        val updateTypeFilter = ChangeTypeFilter(ChangeType.UPDATE)
 
         assertFalse("Change type add", addTypeFilter.test(changeMessage))
         assertFalse("Change type remove", removeTypeFilter.test(changeMessage))

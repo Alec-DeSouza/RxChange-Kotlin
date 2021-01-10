@@ -17,7 +17,6 @@
 package com.umbraltech.rxchange.adapter
 
 import com.umbraltech.rxchange.message.ChangeMessage
-import com.umbraltech.rxchange.message.MetaChangeMessage
 import com.umbraltech.rxchange.type.ChangeType
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
@@ -38,7 +37,7 @@ class SingleChangeAdapter<D>(@Volatile private var data: D) {
     /**
      * Updates the adapter with [data] and emits a change message to surrounding observers
      *
-     * No metadata is provided with the change message
+     * The change snapshot will contain the value that was just updated
      *
      * @return true if the element was added, false otherwise
      */
@@ -47,7 +46,7 @@ class SingleChangeAdapter<D>(@Volatile private var data: D) {
         this.data = data
 
         // Signal update
-        publishSubject.onNext(MetaChangeMessage(oldData, this.data, ChangeType.UPDATE, null))
+        publishSubject.onNext(ChangeMessage(oldData, this.data, ChangeType.UPDATE, data))
 
         return true
     }

@@ -25,12 +25,14 @@ import com.umbraltech.rxchange.type.ChangeType
  * @property oldData the original data
  * @property newData the updated data
  * @property changeType the type of change that occurred
- * @constructor Creates a change message with the specified data and change type
+ * @property changeSnapshot the change snapshot
+ * @constructor Creates a change message with the specified data, change type, and metadata
  */
-open class ChangeMessage<D>(open val oldData: D,
-                            open val newData: D,
-                            open val changeType: ChangeType) {
+open class ChangeMessage<D>(val oldData: D,
+                            val newData: D,
+                            val changeType: ChangeType,
+                            val changeSnapshot: D) {
     override fun toString(): String {
-        return "${this::class.simpleName}(oldData=$oldData, newData=$newData, changeType=$changeType)"
+        return "${this::class.simpleName}(oldData=$oldData, newData=$newData, changeType=$changeType, changeSnapshot=$changeSnapshot)"
     }
 }

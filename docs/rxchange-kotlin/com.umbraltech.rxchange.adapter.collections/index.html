@@ -1,105 +1,153 @@
-<HTML>
-<HEAD>
-    <meta charset="UTF-8">
-    <title>com.umbraltech.rxchange.adapter.collections - rxchange-kotlin</title>
-    <link rel="stylesheet" href="../../style.css">
-</HEAD>
-<BODY>
-<a href="../index.html">rxchange-kotlin</a>&nbsp;/&nbsp;<a href="./index.html">com.umbraltech.rxchange.adapter.collections</a><br/>
-<br/>
-<h2>Package com.umbraltech.rxchange.adapter.collections</h2>
-<h3>Types</h3>
-<table>
-    <tbody>
-    <tr>
-        <td>
-            <p><a href="-list-change-adapter/index.html">ListChangeAdapter</a></p>
-        </td>
-        <td>
-            <code><span class="keyword">class </span><span class="identifier">ListChangeAdapter</span><span
-                    class="symbol">&lt;</span><span class="identifier">D</span><span class="symbol">&gt;</span></code>
-            <p>An adapter that implements the reactive change model for lists</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <p><a href="-map-change-adapter/index.html">MapChangeAdapter</a></p>
-        </td>
-        <td>
-            <code><span class="keyword">class </span><span class="identifier">MapChangeAdapter</span><span
-                    class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span
-                    class="identifier">D</span><span class="symbol">&gt;</span></code>
-            <p>An adapter that implements the reactive change model for maps</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <p><a href="-set-change-adapter/index.html">SetChangeAdapter</a></p>
-        </td>
-        <td>
-            <code><span class="keyword">class </span><span class="identifier">SetChangeAdapter</span><span
-                    class="symbol">&lt;</span><span class="identifier">D</span><span class="symbol">&gt;</span></code>
-            <p>An adapter that implements the reactive change model for sets</p>
-        </td>
-    </tr>
-    </tbody>
-</table>
-<h3>Type Aliases</h3>
-<table>
-    <tbody>
-    <tr>
-        <td>
-            <p><a href="-change-message-list.html">ChangeMessageList</a></p>
-        </td>
-        <td>
-            <code><span class="keyword">typealias </span><span class="identifier">ChangeMessageList</span><span
-                    class="symbol">&lt;</span><span class="identifier">D</span><span
-                    class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;<a
-                    href="../com.umbraltech.rxchange.message/-change-message/index.html"><span class="identifier">ChangeMessage</span></a><span
-                    class="symbol">&lt;</span><a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
-                    class="identifier">List</span></a><span class="symbol">&lt;</span><a
-                    href="-change-message-list.html#D"><span class="identifier">D</span></a><span
-                    class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
-            <p>Alias used for the type ChangeMessage&lt;List&gt;</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <p><a href="-change-message-map.html">ChangeMessageMap</a></p>
-        </td>
-        <td>
-            <code><span class="keyword">typealias </span><span class="identifier">ChangeMessageMap</span><span
-                    class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span
-                    class="identifier">D</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;<a
-                    href="../com.umbraltech.rxchange.message/-change-message/index.html"><span class="identifier">ChangeMessage</span></a><span
-                    class="symbol">&lt;</span><a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span
-                    class="identifier">Map</span></a><span class="symbol">&lt;</span><a
-                    href="-change-message-map.html#K"><span class="identifier">K</span></a><span class="symbol">,</span>&nbsp;<a
-                    href="-change-message-map.html#D"><span class="identifier">D</span></a><span
-                    class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
-            <p>Alias used for the type ChangeMessage&lt;Map&lt;K, D&gt;&gt;</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <p><a href="-change-message-set.html">ChangeMessageSet</a></p>
-        </td>
-        <td>
-            <code><span class="keyword">typealias </span><span class="identifier">ChangeMessageSet</span><span
-                    class="symbol">&lt;</span><span class="identifier">D</span><span
-                    class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;<a
-                    href="../com.umbraltech.rxchange.message/-change-message/index.html"><span class="identifier">ChangeMessage</span></a><span
-                    class="symbol">&lt;</span><a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span
-                    class="identifier">Set</span></a><span class="symbol">&lt;</span><a
-                    href="-change-message-set.html#D"><span class="identifier">D</span></a><span
-                    class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
-            <p>Alias used for the type ChangeMessage&lt;Set&gt;</p>
-        </td>
-    </tr>
-    </tbody>
-</table>
-</BODY>
-</HTML>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>com.umbraltech.rxchange.adapter.collections</title>
+    <link href="../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../";</script>
+    <script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async="async"></script>
+    <link href="../../styles/style.css" rel="Stylesheet">
+    <link href="../../styles/logo-styles.css" rel="Stylesheet">
+    <link href="../../styles/jetbrains-mono.css" rel="Stylesheet">
+    <link href="../../styles/main.css" rel="Stylesheet">
+    <script type="text/javascript" src="../../scripts/clipboard.js" async="async"></script>
+    <script type="text/javascript" src="../../scripts/navigation-loader.js" async="async"></script>
+    <script type="text/javascript" src="../../scripts/platform-content-handler.js" async="async"></script>
+    <script type="text/javascript" src="../../scripts/main.js" async="async"></script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="leftColumn">
+        <div id="logo"></div>
+        <div id="paneSearch"></div>
+        <div id="sideMenu"></div>
+      </div>
+      <div id="main">
+        <div id="leftToggler"><span class="icon-toggler"></span></div>
+        <script type="text/javascript" src="../../scripts/pages.js"></script>
+        <script type="text/javascript" src="../../scripts/main.js"></script>
+        <div class="main-content" id="content" pageIds="com.umbraltech.rxchange.adapter.collections////PointingToDeclaration//-576863007">
+          <div class="navigation-wrapper" id="navigation-wrapper">
+            <div class="breadcrumbs"><a href="../index.html">rxchange-kotlin</a>/<a href="index.html">com.umbraltech.rxchange.adapter.collections</a></div>
+            <div class="pull-right d-flex">
+              <div id="searchBar"></div>
+            </div>
+          </div>
+          <div class="cover ">
+            <h1 class="cover"><span>Package com.</span><wbr></wbr><span>umbraltech.</span><wbr></wbr><span>rxchange.</span><wbr></wbr><span>adapter.</span><wbr></wbr><span>collections</span></h1>
+          </div>
+          <div class="tabbedcontent">
+            <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Types">Types</button></div>
+            <div class="tabs-section-body">
+              <h2 class="">Types</h2>
+              <div class="table" data-togglable="Types"><a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageList%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" anchor-label="ChangeMessageList" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageList%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>
+                <div class="table-row" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="index.html#%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageList%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007">ChangeMessageList</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageList%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title"><div class="divergent-group" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM"><div class="with-platform-tags"><span class="pull-right"></span></div>
+
+  <div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable="rxchange-kotlin/JVM"><div class="symbol monospace">typealias <a href="index.html#%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageList%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007">ChangeMessageList</a>&lt;<a href="index.html#%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageList%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007">D</a>&gt; = <a href="../com.umbraltech.rxchange.message/-change-message/index.html">ChangeMessage</a>&lt;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="index.html#%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageList%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007">D</a>&gt;&gt;<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+  </div>
+<a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageList%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" anchor-label="ChangeMessageList" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageList%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a><div class="brief "><a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageList%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" anchor-label="ChangeMessageList" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageList%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a><p class="paragraph">Alias used for the type ChangeMessage&lt;List&lt;D&gt;&gt;</p></div></div>
+</div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageMap%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" anchor-label="ChangeMessageMap" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageMap%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>
+                <div class="table-row" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="index.html#%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageMap%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007">ChangeMessageMap</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageMap%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title"><div class="divergent-group" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM"><div class="with-platform-tags"><span class="pull-right"></span></div>
+
+  <div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable="rxchange-kotlin/JVM"><div class="symbol monospace">typealias <a href="index.html#%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageMap%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007">ChangeMessageMap</a>&lt;<a href="index.html#%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageMap%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007">K</a>, <a href="index.html#%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageMap%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007">D</a>&gt; = <a href="../com.umbraltech.rxchange.message/-change-message/index.html">ChangeMessage</a>&lt;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html">Map</a>&lt;<a href="index.html#%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageMap%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007">K</a>, <a href="index.html#%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageMap%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007">D</a>&gt;&gt;<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+  </div>
+<a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageMap%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" anchor-label="ChangeMessageMap" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageMap%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a><div class="brief "><a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageMap%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" anchor-label="ChangeMessageMap" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageMap%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a><p class="paragraph">Alias used for the type ChangeMessage&lt;Map&lt;K, D&gt;&gt;</p></div></div>
+</div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageSet%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" anchor-label="ChangeMessageSet" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageSet%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>
+                <div class="table-row" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="index.html#%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageSet%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007">ChangeMessageSet</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageSet%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title"><div class="divergent-group" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM"><div class="with-platform-tags"><span class="pull-right"></span></div>
+
+  <div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable="rxchange-kotlin/JVM"><div class="symbol monospace">typealias <a href="index.html#%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageSet%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007">ChangeMessageSet</a>&lt;<a href="index.html#%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageSet%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007">D</a>&gt; = <a href="../com.umbraltech.rxchange.message/-change-message/index.html">ChangeMessage</a>&lt;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html">Set</a>&lt;<a href="index.html#%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageSet%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007">D</a>&gt;&gt;<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+  </div>
+<a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageSet%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" anchor-label="ChangeMessageSet" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageSet%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a><div class="brief "><a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageSet%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" anchor-label="ChangeMessageSet" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FChangeMessageSet%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a><p class="paragraph">Alias used for the type ChangeMessage&lt;Set&lt;D&gt;&gt;</p></div></div>
+</div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FListChangeAdapter%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" anchor-label="ListChangeAdapter" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FListChangeAdapter%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>
+                <div class="table-row" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="-list-change-adapter/index.html">ListChangeAdapter</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="%5Bcom.umbraltech.rxchange.adapter.collections%2FListChangeAdapter%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title"><div class="divergent-group" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM"><div class="with-platform-tags"><span class="pull-right"></span></div>
+
+  <div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable="rxchange-kotlin/JVM"><div class="symbol monospace">class <a href="-list-change-adapter/index.html">ListChangeAdapter</a>&lt;<a href="-list-change-adapter/index.html">D</a>&gt;<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+  </div>
+<a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FListChangeAdapter%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" anchor-label="ListChangeAdapter" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FListChangeAdapter%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a><div class="brief "><a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FListChangeAdapter%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" anchor-label="ListChangeAdapter" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FListChangeAdapter%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>An adapter that implements the reactive change model for lists</div></div>
+</div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" anchor-label="MapChangeAdapter" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>
+                <div class="table-row" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="-map-change-adapter/index.html">MapChangeAdapter</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title"><div class="divergent-group" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM"><div class="with-platform-tags"><span class="pull-right"></span></div>
+
+  <div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable="rxchange-kotlin/JVM"><div class="symbol monospace">class <a href="-map-change-adapter/index.html">MapChangeAdapter</a>&lt;<a href="-map-change-adapter/index.html">K</a>, <a href="-map-change-adapter/index.html">D</a>&gt;<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+  </div>
+<a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" anchor-label="MapChangeAdapter" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a><div class="brief "><a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" anchor-label="MapChangeAdapter" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FMapChangeAdapter%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>An adapter that implements the reactive change model for maps</div></div>
+</div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FSetChangeAdapter%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" anchor-label="SetChangeAdapter" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FSetChangeAdapter%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>
+                <div class="table-row" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="-set-change-adapter/index.html">SetChangeAdapter</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="%5Bcom.umbraltech.rxchange.adapter.collections%2FSetChangeAdapter%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title"><div class="divergent-group" data-filterable-current="rxchange-kotlin/JVM" data-filterable-set="rxchange-kotlin/JVM"><div class="with-platform-tags"><span class="pull-right"></span></div>
+
+  <div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable="rxchange-kotlin/JVM"><div class="symbol monospace">class <a href="-set-change-adapter/index.html">SetChangeAdapter</a>&lt;<a href="-set-change-adapter/index.html">D</a>&gt;<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+  </div>
+<a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FSetChangeAdapter%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" anchor-label="SetChangeAdapter" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FSetChangeAdapter%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a><div class="brief "><a data-name="%5Bcom.umbraltech.rxchange.adapter.collections%2FSetChangeAdapter%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" anchor-label="SetChangeAdapter" id="%5Bcom.umbraltech.rxchange.adapter.collections%2FSetChangeAdapter%2F%2F%2FPointingToDeclaration%2F%5D%2FClasslikes%2F-576863007" data-filterable-set="rxchange-kotlin/JVM"></a>An adapter that implements the reactive change model for sets</div></div>
+</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer"><span class="go-to-top-icon"><a href="#content"></a></span><span>© 2020 Copyright</span><span class="pull-right"><span>Sponsored and developed by dokka</span><a href="https://github.com/Kotlin/dokka"><span class="padded-icon"></span></a></span></div>
+      </div>
+    </div>
+  </body>
+</html>
+
